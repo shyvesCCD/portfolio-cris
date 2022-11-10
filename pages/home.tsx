@@ -7,21 +7,12 @@ import setupCris from "../public/setupCris.jpg";
 
 const InicialPage: NextPage = () => {
   return (
-    <>
+    <div className="h-screen">
       <HeadComponent text="Cris Aldreyn" />
       <Header />
       {/*TODO: Ajeitar as fotos para que elas ocupem o site inteiro.*/}
-      <main className="flex justify-between items-center">
-        <Image
-          className="flex-1 w-max h-max"
-          src={profilePic}
-          alt="Picture of the author"
-          width="100%"
-          height="100%"
-          objectFit="cover"
-          placeholder="blur" // Optional blur-up while loading
-          priority
-        />
+      <main className="grid grid-cols-3 h-5/6">
+        <Image src={profilePic} alt="Profile picture" objectFit="cover" />
         <div className="flex flex-col justify-center items-center">
           <h1 className="font-bold text-4xl mb-8">Hi, I'm Cris.</h1>
           <p className="text-2xl mb-4">
@@ -31,17 +22,9 @@ const InicialPage: NextPage = () => {
             But I can help you tell your story wherever you are.
           </p>
         </div>
-        <Image
-          className="flex-1 w-max h-max"
-          src={setupCris}
-          alt="Setup of the author"
-          width="100%"
-          height="100%"
-          objectFit="cover"
-          placeholder="blur" // Optional blur-up while loading
-        />
+        <Image src={setupCris} alt="Setup of the author" objectFit="cover" />
       </main>
-    </>
+    </div>
   );
 };
 
