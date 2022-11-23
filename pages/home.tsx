@@ -1,6 +1,5 @@
 import type { NextPage } from "next";
 import Header from "../components/Header";
-import HeadComponent from "../components/HeadComponent";
 import Image from "next/image";
 import profilePic from "../public/crisphoto.jpg";
 import setupCris from "../public/setupCris.jpg";
@@ -8,7 +7,6 @@ import setupCris from "../public/setupCris.jpg";
 const InicialPage: NextPage = () => {
   return (
     <div className="h-screen">
-      <HeadComponent text="Cris Aldreyn" />
       <Header />
       {/*TODO: Ajeitar as fotos para que elas ocupem o site inteiro.*/}
       <main className="grid grid-cols-3 h-5/6">

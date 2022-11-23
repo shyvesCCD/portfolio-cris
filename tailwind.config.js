@@ -10,6 +10,9 @@ module.exports = {
         sans: ["Raleway"],
         body: ['"Raleway"'],
       },
+      padding: {
+        aspect: "56.25%",
+      }
     },
   },
   plugins: [],

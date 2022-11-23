@@ -5,9 +5,9 @@ const Header = () => {
   const router = useRouter();
 
   return (
-    <header className="flex justify-around p-3 h-1/6 items-center">
+    <header className="flex justify-between p-8 h-1/6 items-center">
       <Link href="/home" passHref>
-        <a className="text-xl">Cris Aldreyn | video editor services</a>
+        <a className="text-2xl font-medium">Cris Aldreyn | video editor services</a>
       </Link>
       <ul>
         <Link href="/home" passHref>
@@ -41,6 +41,17 @@ const Header = () => {
             }
           >
             projects
+          </a>
+        </Link>
+        <Link href="services" passHref>
+          <a
+            className={
+              router.pathname == "/services"
+                ? "font-bold ml-8 hover:brightness-90 text-xl"
+                : "ml-8 hover:brightness-90 text-xl"
+            }
+          >
+            services
           </a>
         </Link>
       </ul>

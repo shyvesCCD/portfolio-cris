@@ -3,9 +3,11 @@ import Header from "../components/Header";
 
 const Projects: NextPage = () => {
   return (
-    <div className="h-screen">
-      <Header />
-    </div>
+    <>
+      <div className="h-screen">
+        <Header />
+      </div>
+    </>
   );
 };
 
