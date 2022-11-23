@@ -12,7 +12,7 @@ const InicialPage: NextPage = () => {
       <main className="grid grid-cols-3 h-5/6">
         <Image src={profilePic} alt="Profile picture" objectFit="cover" />
         <div className="flex flex-col justify-center items-center">
-          <h1 className="font-bold text-4xl mb-8">Hi, I'm Cris.</h1>
+          <h1 className="font-bold text-4xl mb-8">Hi, I’m Cris.</h1>
           <p className="text-2xl mb-4">
             I’m a video editor based in Porto, Portugal.
           </p>
