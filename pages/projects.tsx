@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import Header from "../components/Header";
 
 const Projects: NextPage = () => {
-  const [categories, setCategories] = useState()
+  const [categories, setCategories] = useState();
 
   return (
     <>
@@ -20,7 +20,7 @@ export default Projects;
 export const getServerSideProps = () => {
   return {
     props: {
-      list: [1,2,3]
-    }
-  }
-}
+      list: [1, 2, 3],
+    },
+  };
+};
