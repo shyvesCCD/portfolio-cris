@@ -8,8 +8,8 @@ const About: NextPage = () => {
       <main className="grid grid-cols-[40%_60%] h-5/6">
         <div className="flex justify-center items-center">
           <div className="relative h-0 overflow-hidden max-w-full w-full pb-aspect">
-            <iframe src="https://www.youtube.com/embed/jfKfPfyJRdk" 
-              className="absolute top-0 left-0 w-full h-full mx-auto " allowFullScreen></iframe> 
+            <iframe src="https://www.youtube.com/embed/jfKfPfyJRdk"
+              className="absolute top-0 left-0 w-full h-full mx-auto " allowFullScreen></iframe>
           </div>
         </div>
         <div className="flex flex-col items-center justify-center gap-9">
