@@ -3,32 +3,50 @@ import { useEffect, useState } from "react";
 import Header from "../components/Header";
 import { api } from "../lib/axios";
 
-const Projects: NextPage = () => {
-  const [categories, setCategories] = useState([""]);
-  const [pagination, setPagination] = useState();
+interface ProjectsProps {
+  data1: {
+    id: number;
+    attributes: {
+      category: string;
+      createdAt: string;
+      updatedAt: string;
+      publishedAt: string;
+    };
+  }[];
+  data2: {
+    pagination: {
+      page: number;
+      pageCount: number;
+      pageSize: number;
+      total: 6;
+    };
+  };
+}
 
-  useEffect(() => {
-    try {
-      api.get("/categories").then((response) => {
-        setCategories(response.data.data);
-        setPagination(response.data.meta);
-      });
-    } catch (err) {
-      console.log(err);
-    }
-  }, []);
-
-  console.log(categories);
-  console.log(pagination);
-
+const Projects: NextPage<ProjectsProps> = ({ data1, data2 }) => {
   return (
     <>
       <div className="h-screen">
         <Header />
-        <h1 className=""></h1>
+        {data1.map((element) => (
+          <h1 className="font-bold" key={element.id}>
+            {element.attributes.category}
+          </h1>
+        ))}
       </div>
     </>
   );
 };
 
 export default Projects;
+
+export const getServerSideProps: GetStaticProps = async () => {
+  const data = await api.get("/categories");
+
+  return {
+    props: {
+      data1: data.data.data,
+      data2: data.data.meta,
+    },
+  };
+};
