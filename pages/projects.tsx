@@ -28,6 +28,7 @@ const Projects: NextPage<ProjectsProps> = ({ data1, data2 }) => {
     <>
       <div className="h-screen">
         <Header />
+        {/*TODO: Agora preciso criar o componente que vai ficar as categorias */}
         {data1.map((element) => (
           <h1 className="font-bold" key={element.id}>
             {element.attributes.category}
