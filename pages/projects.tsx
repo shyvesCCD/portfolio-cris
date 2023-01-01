@@ -57,5 +57,6 @@ export const getServerSideProps: GetStaticProps = async () => {
       data1: data.data.data,
       data2: data.data.meta,
     },
+    revalidate: 10,
   };
 };
