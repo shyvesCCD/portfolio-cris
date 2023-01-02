@@ -24,8 +24,6 @@ interface ProjectsProps {
 }
 
 const Projects: NextPage<ProjectsProps> = ({ data1, data2 }) => {
-  console.log(data1);
-
   return (
     <>
       <div className="h-screen">
