@@ -30,7 +30,7 @@ export const getStaticProps: GetStaticProps = async () => {
     },
   });
 
-  const data1: Category = response.data.data;
+  const data1 = response.data.data;
 
   return {
     props: {
