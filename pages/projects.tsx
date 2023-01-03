@@ -5,10 +5,7 @@ import { api } from "../lib/axios";
 import Card from "../components/Cards";
 import { Category, CategoryMeta } from "../models/Category";
 
-const Projects: NextPage = ({
-  data1,
-  data2,
-}: InferGetStaticPropsType<typeof getStaticProps>) => {
+const Projects: NextPage<Category> = ({ data1 }) => {
   return (
     <>
       <div className="h-screen">
@@ -34,12 +31,10 @@ export const getStaticProps: GetStaticProps = async () => {
   });
 
   const data1: Category = response.data.data;
-  const data2: CategoryMeta = response.data.meta;
 
   return {
     props: {
       data1,
-      data2,
     },
   };
 };
