@@ -12,9 +12,13 @@ const Projects: NextPage<Category> = ({ data1 }) => {
         <Header />
         {/*TODO: Agora preciso criar o componente que vai ficar as categorias */}
         <div className="h-5/6 flex justify-center flex-wrap">
-          {data1.map((element) => (
-            <Card text={element.attributes.category} key={element.id} />
-          ))}
+          {data1 ? (
+            data1.map((element) => (
+              <Card text={element.attributes.category} key={element.id} />
+            ))
+          ) : (
+            <h1>Não foi possível carregar as categorias.</h1>
+          )}
         </div>
       </div>
     </>
