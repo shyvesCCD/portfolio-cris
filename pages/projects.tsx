@@ -1,30 +1,14 @@
-import type { GetStaticProps, NextPage } from "next";
+import type { GetStaticProps, InferGetStaticPropsType, NextPage } from "next";
 import { useEffect, useState } from "react";
 import Header from "../components/Header";
 import { api } from "../lib/axios";
 import Card from "../components/Cards";
+import { Category, CategoryMeta } from "../models/Category";
 
-interface ProjectsProps {
-  data1: {
-    id: number;
-    attributes: {
-      category: string;
-      createdAt: string;
-      updatedAt: string;
-      publishedAt: string;
-    };
-  }[];
-  data2: {
-    pagination: {
-      page: number;
-      pageCount: number;
-      pageSize: number;
-      total: 6;
-    };
-  };
-}
-
-const Projects: NextPage<ProjectsProps> = ({ data1, data2 }) => {
+const Projects: NextPage = ({
+  data1,
+  data2,
+}: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <>
       <div className="h-screen">
@@ -42,19 +26,20 @@ const Projects: NextPage<ProjectsProps> = ({ data1, data2 }) => {
 
 export default Projects;
 
-export const getServerSideProps: GetStaticProps = async () => {
-  const data = await api.get("/categories");
+export const getStaticProps: GetStaticProps = async () => {
+  const response = await api.get("/categories", {
+    headers: {
+      Accept: "application/json",
+    },
+  });
 
-  if (!data) {
-    return {
-      notFound: true,
-    };
-  }
+  const data1: Category = response.data.data;
+  const data2: CategoryMeta = response.data.meta;
 
   return {
     props: {
-      data1: data.data.data,
-      data2: data.data.meta,
+      data1,
+      data2,
     },
   };
 };
