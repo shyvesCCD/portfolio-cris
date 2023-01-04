@@ -1,9 +1,8 @@
-import type { GetStaticProps, InferGetStaticPropsType, NextPage } from "next";
-import { useEffect, useState } from "react";
+import type { GetStaticProps, NextPage } from "next";
 import Header from "../components/Header";
 import { api } from "../lib/axios";
 import Card from "../components/Cards";
-import { Category, CategoryMeta } from "../models/Category";
+import { Category } from "../models/Category";
 
 const Projects: NextPage<Category> = ({ data1 }) => {
   return (
@@ -40,5 +39,6 @@ export const getStaticProps: GetStaticProps = async () => {
     props: {
       data1,
     },
+    revalidate: 600,
   };
 };
