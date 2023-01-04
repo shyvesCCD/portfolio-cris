@@ -35,6 +35,12 @@ export const getStaticProps: GetStaticProps = async () => {
 
   const data1 = response.data.data;
 
+  if (!data1) {
+    return {
+      notFound: true,
+    };
+  }
+
   return {
     props: {
       data1,
