@@ -1,5 +1,7 @@
+/*TODO: Pensar em melhores nomes para as interfaces */
+
 export interface Category {
-  data1: {
+  category: {
     id: number;
     attributes: {
       category: string;
@@ -18,5 +20,15 @@ export interface CategoryMeta {
       pageSize: number;
       total: number;
     };
+  };
+}
+
+export interface Categoria {
+  id: number;
+  attributes: {
+    category: string;
+    createdAt: string;
+    updatedAt: string;
+    publishedAt: string;
   };
 }
