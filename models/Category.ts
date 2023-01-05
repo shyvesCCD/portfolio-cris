@@ -8,8 +8,11 @@ export interface Category {
       createdAt: string;
       updatedAt: string;
       publishedAt: string;
+      description: string;
+      linkURL: string;
     };
-  }[];
+  };
+  text: string;
 }
 
 export interface CategoryMeta {
@@ -24,11 +27,12 @@ export interface CategoryMeta {
 }
 
 export interface Categoria {
-  id: number;
   attributes: {
     category: string;
     createdAt: string;
     updatedAt: string;
     publishedAt: string;
+    description: string;
+    linkURL: string;
   };
 }
