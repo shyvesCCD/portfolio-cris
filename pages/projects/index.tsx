@@ -26,26 +26,7 @@ const Projects: NextPage<Category> = ({ category }) => {
 
 export default Projects;
 
-//export const getStaticPaths: GetStaticPaths = async () => {
-//const response = await api.get("/categories", {
-//headers: {
-//Accept: "application/json",
-//},
-//});
-
-//const data1 = response.data.data;
-
-//const paths = data1.map((categories: Categoria) => ({
-//params: { category: categories.attributes.category },
-//}));
-
-//return {
-//paths,
-//fallback: false,
-//};
-//};
-
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+export const getServerSideProps = async () => {
   const response = await api.get("categories", {
     headers: {
       Accept: "application/json",
@@ -54,11 +35,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   const data1 = response.data.data;
 
-  if (!data1) {
-    return {
-      notFound: true,
-    };
-  }
+  if (!data1) return { notFound: true };
 
   return {
     props: {
