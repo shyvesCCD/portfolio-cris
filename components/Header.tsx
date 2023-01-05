@@ -7,7 +7,9 @@ const Header = () => {
   return (
     <header className="flex justify-between p-8 h-1/6 items-center">
       <Link href="/home" passHref>
-        <a className="text-2xl font-medium">Cris Aldreyn | video editor services</a>
+        <a className="text-2xl font-medium">
+          Cris Aldreyn | video editor services
+        </a>
       </Link>
       <ul>
         <Link href="/home" passHref>
@@ -32,7 +34,7 @@ const Header = () => {
             about
           </a>
         </Link>
-        <Link href="projects" passHref>
+        <Link href="/projects" passHref>
           <a
             className={
               router.pathname == "/projects"
