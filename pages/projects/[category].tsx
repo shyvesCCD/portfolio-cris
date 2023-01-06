@@ -1,14 +1,15 @@
 import { GetStaticPaths, NextPage } from "next";
+import { ParsedUrl } from "next/dist/shared/lib/router/utils/parse-url";
 import { useRouter } from "next/router";
 import Header from "../../components/Header";
 import { api } from "../../lib/axios";
 import { Categoria, Category, ElementProps } from "../../models/Category";
 
-type Params = {
+interface Params extends ParsedUrl {
   params: {
     category: string;
   };
-};
+}
 
 const ProjectsCategory: NextPage<Category> = ({ category, text }) => {
   const router = useRouter();
@@ -19,7 +20,7 @@ const ProjectsCategory: NextPage<Category> = ({ category, text }) => {
     <>
       <Header />
       <main className="flex flex-col lg:flex-row h-5/6 mx-20">
-        <div className="w-full lg:w-1/3 lg:mt-0 mt-4 flex items-center">
+        <div className="w-full lg:w-1/3 lg:mt-0 mt-4 flex items-center justify-center">
           <div className="relative h-0 w-full pb-aspect">
             <iframe
               src={category.attributes.linkURL}
@@ -52,8 +53,8 @@ export async function getStaticPaths() {
   return { paths, fallback: "blocking" };
 }
 
-export const getStaticProps: GetStaticPaths = async ({ params }: Params) => {
-  console.log(params);
+export const getStaticProps: GetStaticPaths<Category, Params> = async (ctx) => {
+  const params = ctx.params!;
   const { data } = await api.get("/categories");
 
   if (!data) return { notFound: true };
@@ -67,11 +68,10 @@ export const getStaticProps: GetStaticPaths = async ({ params }: Params) => {
 
   const text = value[0].attributes.description.replace(/\n/g, "<br />");
 
-  console.log(value);
   return {
     props: {
-      text,
       category: value[0],
+      text,
     },
   };
 };
