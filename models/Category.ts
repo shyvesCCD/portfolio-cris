@@ -36,3 +36,15 @@ export interface Categoria {
     linkURL: string;
   };
 }
+
+export interface ElementProps {
+  id: number;
+  attributes: {
+    category: string;
+    createdAt: string;
+    updatedAt: string;
+    publishedAt: string;
+    description: string;
+    linkURL: string;
+  };
+}

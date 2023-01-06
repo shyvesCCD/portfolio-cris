@@ -2,7 +2,7 @@ import { GetStaticPaths, NextPage } from "next";
 import { useRouter } from "next/router";
 import Header from "../../components/Header";
 import { api } from "../../lib/axios";
-import { Categoria, Category } from "../../models/Category";
+import { Categoria, Category, ElementProps } from "../../models/Category";
 
 type Params = {
   params: {
@@ -59,7 +59,8 @@ export const getStaticProps: GetStaticPaths = async ({ params }: Params) => {
   const response = data.data;
 
   const value = response.filter(
-    (element) => element.attributes.category.toLowerCase() == params.category
+    (element: ElementProps) =>
+      element.attributes.category.toLowerCase() == params.category
   );
 
   const text = value[0].attributes.description.replace(/\n/g, "<br />");
