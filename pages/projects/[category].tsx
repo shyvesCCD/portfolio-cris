@@ -18,19 +18,21 @@ const ProjectsCategory: NextPage<Category> = ({ category, text }) => {
   return (
     <>
       <Header />
-      <main className="flex flex-wrap h-5/6">
-        <div
-          className="text-xl leading-6 m-auto"
-          dangerouslySetInnerHTML={{ __html: text }}
-        />
-        <div className="flex justify-center items-center">
-          <div className="relative h-0 overflow-hidden max-w-full w-full pb-aspect">
+      <main className="flex flex-col lg:flex-row h-5/6 mx-20">
+        <div className="w-full lg:w-1/3 lg:mt-0 mt-4 flex items-center">
+          <div className="relative h-0 w-full pb-aspect">
             <iframe
               src={category.attributes.linkURL}
               className="absolute top-0 left-0 w-full h-full mx-auto "
               allowFullScreen
             ></iframe>
           </div>
+        </div>
+        <div className="flex text-xl leading-6 w-full lg:w-2/3 overflow-y-scroll">
+          <div
+            className="lg:ml-16 ml-0"
+            dangerouslySetInnerHTML={{ __html: text }}
+          />
         </div>
       </main>
     </>
