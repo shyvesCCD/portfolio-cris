@@ -11,7 +11,7 @@ export interface Category {
       description: string;
       linkURL: string;
     };
-  };
+  }[];
   text: string;
 }
 
@@ -48,3 +48,6 @@ export interface ElementProps {
     linkURL: string;
   };
 }
+
+export type Element = ElementProps[] | ElementProps;
+export type CategoryArray = Category[] | Category;
