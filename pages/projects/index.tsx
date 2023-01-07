@@ -1,8 +1,8 @@
-import type { GetStaticPaths, GetStaticProps, NextPage } from "next";
+import type { NextPage } from "next";
 import Header from "../../components/Header";
 import { api } from "../../lib/axios";
 import Card from "../../components/Cards";
-import { Categoria, Category } from "../../models/Category";
+import { Category } from "../../models/Category";
 
 const Projects: NextPage<Category> = ({ category }) => {
   return (
