@@ -2,9 +2,16 @@ import type { GetStaticProps, NextPage } from "next";
 import { useRouter } from "next/router";
 import Header from "../../components/Header";
 import { api } from "../../lib/axios";
-import { Categoria, Category, ElementProps } from "../../models/Category";
+import {
+  Categoria,
+  CategoryWhenNotArray,
+  ElementProps,
+} from "../../models/Category";
 
-const ProjectsCategory: NextPage<Category> = ({ category, text }) => {
+const ProjectsCategory: NextPage<CategoryWhenNotArray> = ({
+  category,
+  text,
+}) => {
   const router = useRouter();
 
   if (router.isFallback) return null;

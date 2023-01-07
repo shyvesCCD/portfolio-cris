@@ -15,6 +15,22 @@ export interface Category {
   text: string;
 }
 
+/*TODO!: Preciso melhorar o nome dessas interfaces urgente.*/
+export interface CategoryWhenNotArray {
+  category: {
+    id: number;
+    attributes: {
+      category: string;
+      createdAt: string;
+      updatedAt: string;
+      publishedAt: string;
+      description: string;
+      linkURL: string;
+    };
+  };
+  text: string;
+}
+
 export interface CategoryMeta {
   data2: {
     pagination: {
