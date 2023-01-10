@@ -1,4 +1,4 @@
-import type { GetStaticProps, NextPage } from "next";
+import type { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import { useRouter } from "next/router";
 import Header from "../../components/Header";
 import { api } from "../../lib/axios";
@@ -14,7 +14,9 @@ const ProjectsCategory: NextPage<CategoryWhenNotArray> = ({
 }) => {
   const router = useRouter();
 
-  if (router.isFallback) return null;
+  if (router.isFallback) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <>
@@ -42,7 +44,7 @@ const ProjectsCategory: NextPage<CategoryWhenNotArray> = ({
 
 export default ProjectsCategory;
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = async () => {
   const { data } = await api.get("/categories");
   const response = data.data;
 
@@ -50,8 +52,8 @@ export async function getStaticPaths() {
     params: { category: attributes.category },
   }));
 
-  return { paths, fallback: true };
-}
+  return { paths, fallback: "blocking" };
+};
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const params = context.params!;
