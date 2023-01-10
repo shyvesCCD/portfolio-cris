@@ -1,5 +1,9 @@
 /*TODO: Pensar em melhores nomes para as interfaces */
 
+export interface ParamsProps {
+  category?: string;
+}
+
 export interface Category {
   category: {
     id: number;
