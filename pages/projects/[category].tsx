@@ -57,7 +57,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const params: ParamsProps = context.params!;
+  const params = context.params!;
 
   const value = await loadCategory(params);
 
