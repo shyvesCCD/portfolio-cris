@@ -63,8 +63,11 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
   const value = response.filter(
     (element: ElementProps) =>
-      element.attributes.category.toLowerCase() == params.category
+      element.attributes.category.toLowerCase().replace(/\s/g, "") ==
+      params.category
   );
+
+  console.log(value);
 
   const text = value[0].attributes.description.replace(/\n/g, "<br />");
 
