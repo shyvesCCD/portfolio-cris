@@ -2,10 +2,11 @@ import type { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import { useRouter } from "next/router";
 import Header from "../../components/Header";
 import { api } from "../../lib/axios";
+import { loadCategory } from "../../lib/load-category";
 import {
   Categoria,
   CategoryWhenNotArray,
-  ElementProps,
+  ParamsProps,
 } from "../../models/Category";
 
 const ProjectsCategory: NextPage<CategoryWhenNotArray> = ({
@@ -56,18 +57,9 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const params = context.params!;
-  const { data } = await api.get("/categories");
+  const params: ParamsProps = context.params!;
 
-  if (!data) return { notFound: true };
-
-  const response = data.data;
-
-  const value = response.filter(
-    (element: ElementProps) =>
-      element.attributes.category.toLowerCase().replace(/\s/g, "") ==
-      params.category
-  );
+  const value = await loadCategory(params);
 
   const text = value[0].attributes.description.replace(/\n/g, "<br />");
 
