@@ -67,8 +67,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
       params.category
   );
 
-  console.log(value);
-
   const text = value[0].attributes.description.replace(/\n/g, "<br />");
 
   return {
