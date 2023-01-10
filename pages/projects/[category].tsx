@@ -49,7 +49,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const response = data.data;
 
   const paths = response.map(({ attributes }: Categoria) => ({
-    params: { category: attributes.category },
+    params: { category: attributes.category.replace(/\s/, "").toLowerCase() },
   }));
 
   return { paths, fallback: "blocking" };
