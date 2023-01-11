@@ -3,11 +3,7 @@ import { useRouter } from "next/router";
 import Header from "../../components/Header";
 import { api } from "../../lib/axios";
 import { loadCategory } from "../../lib/load-category";
-import {
-  Categoria,
-  CategoryWhenNotArray,
-  ParamsProps,
-} from "../../models/Category";
+import { Categoria, CategoryWhenNotArray } from "../../models/Category";
 
 const ProjectsCategory: NextPage<CategoryWhenNotArray> = ({
   category,
@@ -32,7 +28,7 @@ const ProjectsCategory: NextPage<CategoryWhenNotArray> = ({
             ></iframe>
           </div>
         </div>
-        <div className="flex text-xl leading-6 w-full lg:w-2/3 overflow-y-scroll">
+        <div className="flex text-base w-full lg:w-2/3 overflow-y-scroll lg:m-14 my-10">
           <div
             className="lg:ml-16 ml-0"
             dangerouslySetInnerHTML={{ __html: text }}

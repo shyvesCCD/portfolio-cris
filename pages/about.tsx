@@ -5,15 +5,20 @@ const About: NextPage = () => {
   return (
     <div className="h-screen">
       <Header />
-      <main className="grid grid-cols-[40%_60%] h-5/6">
+      <main className="lg:grid lg:grid-cols-[40%_60%] flex flex-col h-5/6">
         <div className="flex justify-center items-center">
-          <div className="relative h-0 overflow-hidden max-w-full w-full pb-aspect">
-            <iframe src="https://www.youtube.com/embed/jfKfPfyJRdk"
-              className="absolute top-0 left-0 w-full h-full mx-auto " allowFullScreen></iframe>
+          <div className="relative h-0 overflow-hidden max-w-full w-full pb-aspect mx-10">
+            <iframe
+              src="https://www.youtube.com/embed/jfKfPfyJRdk"
+              className="absolute top-0 left-0 w-full h-full mx-auto "
+              allowFullScreen
+            ></iframe>
           </div>
         </div>
-        <div className="flex flex-col items-center justify-center gap-9">
-          <h1 className="text-3xl font-bold">Here’s a little bit about me.</h1>
+        <div className="flex flex-col items-center justify-center gap-9 mx-10">
+          <h1 className="lg:mt-0 mt-10 text-3xl font-bold">
+            Here’s a little bit about me.
+          </h1>
           <p className="text-xl">
             You can watch this video to get all the info. (including some fun
             stuff)
