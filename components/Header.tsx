@@ -12,7 +12,7 @@ const Header = () => {
         </a>
       </Link>
       <ul className="hidden md:flex items-center text-base cursor-pointer">
-        <Link href="home" passHref>
+        <Link href="/home" passHref>
           <a
             className={
               router.pathname == "/home"
