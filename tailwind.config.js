@@ -12,7 +12,14 @@ module.exports = {
       },
       padding: {
         aspect: "56.25%",
-      }
+      },
+    },
+  },
+  variants: {
+    extend: {
+      display: ["group-focus"],
+      opacity: ["group-focus"],
+      inset: ["group-focus"],
     },
   },
   plugins: [],
