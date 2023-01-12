@@ -16,9 +16,9 @@ const ProjectsCategory: NextPage<CategoryWhenNotArray> = ({
   }
 
   return (
-    <>
+    <div className="h-screen">
       <Header />
-      <main className="flex flex-col lg:flex-row h-5/6 mx-20">
+      <main className="mt-[15vh] h-[85vh] flex flex-col items-center justify-center lg:flex-row mx-20">
         <div className="w-full lg:w-1/3 lg:mt-0 mt-4 flex items-center justify-center">
           <div className="relative h-0 w-full pb-aspect">
             <iframe
@@ -28,14 +28,14 @@ const ProjectsCategory: NextPage<CategoryWhenNotArray> = ({
             ></iframe>
           </div>
         </div>
-        <div className="flex text-base w-full lg:w-2/3 overflow-y-scroll lg:m-14 my-10">
+        <div className="flex text-base w-full lg:w-2/3 overflow-y-scroll lg:m-14 my-10 max-h-[38rem]">
           <div
             className="lg:ml-16 ml-0"
             dangerouslySetInnerHTML={{ __html: text }}
           />
         </div>
       </main>
-    </>
+    </div>
   );
 };
 
