@@ -14,7 +14,7 @@ const Card = ({ text }: CardProps) => {
         router.push(`/projects/${text.toLowerCase().replace(/ /g, "")}`)
       }
     >
-      <p className="lg:text-2xl text-xl">{text.toUpperCase()}</p>
+      <p className="lg:text-2xl text-xl capitalize">{text}</p>
     </button>
   );
 };
