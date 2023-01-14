@@ -1,18 +1,39 @@
 import type { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import { useRouter } from "next/router";
-import { useState } from "react";
 import Header from "../components/Header";
 import SideBar from "../components/SideBar";
 import { api } from "../lib/axios";
 import { loadAbout } from "../lib/load-about";
 import { AboutProps } from "../models/Category";
+import { mdBoldToStrong } from "../lib/md-bold-strong";
+import { useState } from "react";
+import Image from "next/image";
+
+import nextArrow from "../public/next-arrow-icon.svg";
+import backArrow from "../public/back-arrow-icon.svg";
 
 const About: NextPage<AboutProps> = ({ textArray }) => {
   const router = useRouter();
-  //const [counter, setCounter] = useState<number>(0);
+  const [counter, setCounter] = useState<number>(0);
 
   if (router.isFallback) {
     return <div>Loading...</div>;
+  }
+
+  function handleClickNext() {
+    if (counter == textArray.length - 1) return;
+    setCounter(counter + 1);
+  }
+
+  function handleClickBack() {
+    if (counter === 0) return;
+    setCounter(counter - 1);
+  }
+
+  function handleClickClear(e: any, href: string) {
+    e.preventDefault();
+    router.push(href);
+    setCounter(0);
   }
 
   return (
@@ -45,14 +66,31 @@ const About: NextPage<AboutProps> = ({ textArray }) => {
           </div>
         </section>
         <section className="h-[85vh] mt-[15vh] lg:grid lg:grid-cols-[30%_70%] snap-center shrink-0 flex items-center">
-          <div className="flex justify-center">
-            <SideBar />
+          <div className="flex justify-center h-full items-center">
+            <SideBar handleClickClear={handleClickClear} />
+            <div className="ml-28 h-2/3 border rounded-lg border-gray-600"></div>
           </div>
-          <div className="flex flex-col justify-center items-center gap-8">
-            <p
-              className="leading-8"
-              dangerouslySetInnerHTML={{ __html: textArray }}
-            ></p>
+          <div className="flex items-center transition-all duration-300">
+            <button className="mr-7 h-8 w-8" onClick={() => handleClickBack()}>
+              <Image
+                className="fill-gray-300"
+                src={backArrow}
+                alt="Arrow to back"
+              />
+            </button>
+            <div className="flex flex-col justify-center items-center gap-8 lg:w-2/3 w-full text-center">
+              <p
+                className="leading-8 text-2xl"
+                dangerouslySetInnerHTML={{ __html: textArray[counter] }}
+              ></p>
+            </div>
+            <button className="ml-7 h-8 w-8" onClick={() => handleClickNext()}>
+              <Image
+                className="fill-gray-300"
+                src={nextArrow}
+                alt="Arrow to next"
+              />
+            </button>
           </div>
         </section>
       </div>
@@ -76,7 +114,9 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
   const data = await loadAbout(params);
 
-  const textArray = data[0].attributes.description.split("SLIDE");
+  const textArray = mdBoldToStrong(data[0].attributes.description).split(
+    "SLIDE"
+  );
 
   return {
     props: {
