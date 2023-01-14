@@ -4,6 +4,10 @@ export interface ParamsProps {
   category?: string;
 }
 
+export interface ParamsPropsAbout {
+  title?: string;
+}
+
 export interface Category {
   category: {
     id: number;
@@ -17,6 +21,10 @@ export interface Category {
     };
   }[];
   text: string;
+}
+
+export interface AboutProps {
+  textArray: string;
 }
 
 /*TODO!: Preciso melhorar o nome dessas interfaces urgente.*/

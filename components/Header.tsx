@@ -5,7 +5,7 @@ const Header = () => {
   const router = useRouter();
 
   return (
-    <nav className="fixed top-0 left-0 w-full h-[15vh] flex justify-between items-center z-10">
+    <nav className="absolute top-0 left-0 w-full h-[15vh] flex justify-between items-center z-10">
       <Link href="/home" passHref>
         <a className="text-2xl pl-8 py-4 font-medium">
           Cris Aldreyn | video editor services
