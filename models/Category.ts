@@ -32,7 +32,9 @@ export interface CategoryWhenNotArray {
       linkURL: string;
     };
   };
-  text: string;
+
+  textArray: string[];
+  responseArray: string[];
 }
 
 export interface CategoryMeta {
