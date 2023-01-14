@@ -1,13 +1,19 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-const SideBar = () => {
+interface SideBarProps {
+  handleClickClear: (e: any, href: string) => void;
+}
+
+const SideBar = ({ handleClickClear }: SideBarProps) => {
   const router = useRouter();
+
   return (
     <nav className="flex justify-center">
       <div className="h-full flex flex-col place-content-center">
         <Link href="/about" passHref>
           <a
+            onClick={(e) => handleClickClear(e, "/about")}
             className={
               router.asPath == "/about"
                 ? "mb-9 font-bold hover:brightness-90 text-xl"
@@ -19,6 +25,7 @@ const SideBar = () => {
         </Link>
         <Link href="/experience" passHref>
           <a
+            onClick={(e) => handleClickClear(e, "/experience")}
             className={
               router.asPath == "/experience"
                 ? "mb-9 font-bold hover:brightness-90 text-xl"
@@ -30,6 +37,7 @@ const SideBar = () => {
         </Link>
         <Link href="/education" passHref>
           <a
+            onClick={(e) => handleClickClear(e, "/education")}
             className={
               router.asPath == "/education"
                 ? "font-bold hover:brightness-90 text-xl"
