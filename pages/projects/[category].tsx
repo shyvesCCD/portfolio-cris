@@ -17,8 +17,6 @@ const ProjectsCategory: NextPage<CategoryWhenNotArray> = ({
     return <div>Loading...</div>;
   }
 
-  console.log(textArray);
-
   return (
     <div className="h-screen flex flex-col items-center justify-center">
       <Header />
