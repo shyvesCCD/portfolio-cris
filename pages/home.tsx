@@ -9,7 +9,7 @@ const InicialPage: NextPage = () => {
     <>
       <div className="h-screen w-full flex flex-col">
         <Header />
-        <main className="lg:grid lg:grid-cols-3 flex flex-col justify-center mt-[15vh] h-[85vh] w-full">
+        <main className="lg:grid lg:grid-cols-3 flex flex-col justify-center h-[85vh] w-auto">
           <Image
             className="lg:visible invisible"
             src={profilePic}

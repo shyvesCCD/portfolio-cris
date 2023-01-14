@@ -9,7 +9,7 @@ const Projects: NextPage<Category> = ({ category }) => {
     <>
       <div className="h-screen flex flex-col">
         <Header />
-        <div className="mt-[15vh] h-[85vh] flex items-center justify-center flex-wrap">
+        <div className="h-[85vh] flex items-center justify-center flex-wrap">
           {category ? (
             category.map((element: ElementProps) => (
               <Card text={element.attributes.category} key={element.id} />

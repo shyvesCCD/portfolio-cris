@@ -38,9 +38,9 @@ const About: NextPage<AboutProps> = ({ textArray }) => {
 
   return (
     <>
-      <div className="h-screen flex flex-col snap-y snap-mandatory overflow-y-scroll">
+      <div className="h-screen w-full flex flex-col snap-y snap-mandatory overflow-y-scroll">
         <Header />
-        <section className="h-[85vh] mt-[15vh] lg:grid lg:grid-cols-[40%_60%] flex flex-col snap-center shrink-0">
+        <section className="h-[85vh] lg:grid lg:grid-cols-[40%_60%] flex flex-col snap-center shrink-0">
           <div className="flex justify-center items-center">
             <div className="relative h-0 overflow-hidden max-w-full w-full pb-aspect mx-10">
               <iframe
@@ -65,10 +65,10 @@ const About: NextPage<AboutProps> = ({ textArray }) => {
             </p>
           </div>
         </section>
-        <section className="h-[85vh] mt-[15vh] lg:grid lg:grid-cols-[30%_70%] snap-center shrink-0 flex items-center">
+        <section className="h-[85vh] lg:grid lg:grid-cols-[30%_70%] snap-center shrink-0 flex items-center flex-col">
           <div className="flex justify-center h-full items-center">
             <SideBar handleClickClear={handleClickClear} />
-            <div className="ml-28 h-2/3 border rounded-lg border-gray-600"></div>
+            <div className="ml-28 h-2/3 lg:border border-b-4 rounded-lg border-gray-600"></div>
           </div>
           <div className="flex items-center transition-all duration-300">
             <button className="mr-7 h-8 w-8" onClick={() => handleClickBack()}>
