@@ -15,7 +15,7 @@ const Header = () => {
         <Link href="/home" passHref>
           <a
             className={
-              router.pathname == "/home"
+              router.asPath.includes("/home")
                 ? "font-bold px-6 py-4 hover:brightness-90 text-xl"
                 : "px-6 py-4 hover:brightness-90 text-xl"
             }
@@ -26,7 +26,7 @@ const Header = () => {
         <Link href="/about" passHref>
           <a
             className={
-              router.pathname == "/about"
+              router.asPath.includes("/about")
                 ? "font-bold px-6 py-4 hover:brightness-90 text-xl"
                 : "px-6 py-4 hover:brightness-90 text-xl"
             }
@@ -37,7 +37,7 @@ const Header = () => {
         <Link href="/projects" passHref>
           <a
             className={
-              router.pathname == "/projects"
+              router.asPath.includes("/projects")
                 ? "font-bold px-6 py-4 hover:brightness-90 text-xl"
                 : "px-6 py-4 hover:brightness-90 text-xl"
             }
@@ -48,7 +48,7 @@ const Header = () => {
         <Link href="/services" passHref>
           <a
             className={
-              router.pathname == "/services"
+              router.asPath.includes("/services")
                 ? "font-bold px-6 py-4 hover:brightness-90 text-xl"
                 : "px-6 py-4 hover:brightness-90 text-xl"
             }

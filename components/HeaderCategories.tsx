@@ -12,7 +12,7 @@ const HeaderCategories = ({ categories }: any) => {
             <Link key={category} href={category.replace(/\s/g, "")} passHref>
               <a
                 className={
-                  router.asPath == `/projects/${category}`
+                  router.asPath == `/projects/${category.replace(/\s/g, "")}`
                     ? "font-bold px-6 py-4 hover:brightness-90 text-xl"
                     : "px-6 py-4 hover:brightness-90 text-xl"
                 }
