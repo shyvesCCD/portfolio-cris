@@ -21,7 +21,7 @@ const ProjectsCategory: NextPage<CategoryWhenNotArray> = ({
     <div className="h-screen flex flex-col items-center justify-center">
       <Header />
       <main className="mt-[15vh] h-[85vh] lg:flex-row mx-20">
-        <div className="container flex items-center justify-center text-center flex-wrap">
+        <div className="flex items-center justify-center text-center flex-wrap">
           <HeaderCategories categories={responseArray} />
         </div>
         <div className="flex lg:flex-row flex-col">
