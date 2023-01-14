@@ -7,9 +7,9 @@ import setupCris from "../public/setupCris.jpg";
 const InicialPage: NextPage = () => {
   return (
     <>
-      <div className="h-screen flex flex-col">
+      <div className="h-screen w-full flex flex-col">
         <Header />
-        <main className="lg:grid lg:grid-cols-3 flex flex-col justify-center mt-[15vh] h-[85vh]">
+        <main className="lg:grid lg:grid-cols-3 flex flex-col justify-center mt-[15vh] h-[85vh] w-full">
           <Image
             className="lg:visible invisible"
             src={profilePic}
@@ -20,10 +20,10 @@ const InicialPage: NextPage = () => {
             <h1 className="lg:text-4xl text-5xl font-bold mb-8">
               Hi, I’m Cris.
             </h1>
-            <p className="lg:text-2xl lg:mx-0 text-xl mb-4 mx-5">
+            <p className="lg:text-2xl lg:mx-5 text-xl mb-4 mx-5 text-center">
               I’m a video editor based in Porto, Portugal.
             </p>
-            <p className="lg:text-2xl lg:mx-0 text-xl mx-5">
+            <p className="lg:text-2xl lg:mx-5 text-xl mx-5 text-center">
               But I can help you tell your story wherever you are.
             </p>
           </div>
