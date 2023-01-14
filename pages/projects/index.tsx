@@ -7,9 +7,9 @@ import { Category, ElementProps } from "../../models/Category";
 const Projects: NextPage<Category> = ({ category }) => {
   return (
     <>
-      <div className="h-screen">
+      <div className="h-screen flex flex-col">
         <Header />
-        <div className="h-5/6 flex justify-center flex-wrap">
+        <div className="mt-[15vh] h-[85vh] flex items-center justify-center flex-wrap">
           {category ? (
             category.map((element: ElementProps) => (
               <Card text={element.attributes.category} key={element.id} />

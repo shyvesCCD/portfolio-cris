@@ -13,6 +13,9 @@ module.exports = {
       padding: {
         aspect: "56.25%",
       },
+      scrollSnapType: {
+        y: "y mandatory",
+      },
     },
   },
   variants: {

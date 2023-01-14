@@ -14,5 +14,5 @@ export async function loadCategory(params: ParamsProps) {
       params.category
   );
 
-  return value;
+  return { value, response };
 }

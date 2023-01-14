@@ -7,9 +7,9 @@ import setupCris from "../public/setupCris.jpg";
 const InicialPage: NextPage = () => {
   return (
     <>
-      <Header />
-      <div className="h-5/6">
-        <main className="lg:grid lg:grid-cols-3 flex flex-col justify-center h-full">
+      <div className="h-screen flex flex-col">
+        <Header />
+        <main className="lg:grid lg:grid-cols-3 flex flex-col justify-center mt-[15vh] h-[85vh]">
           <Image
             className="lg:visible invisible"
             src={profilePic}
