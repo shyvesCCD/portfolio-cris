@@ -15,8 +15,6 @@ const About: NextPage<AboutProps> = ({ textArray }) => {
     return <div>Loading...</div>;
   }
 
-  console.log(textArray);
-
   return (
     <>
       <div className="h-screen flex flex-col snap-y snap-mandatory overflow-y-scroll">
