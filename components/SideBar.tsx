@@ -10,7 +10,7 @@ const SideBar = ({ handleClickClear }: SideBarProps) => {
 
   return (
     <nav className="flex justify-center">
-      <div className="h-full flex flex-col place-content-center">
+      <div className="lg:h-full flex lg:flex-col lg:justify-center flex-row place-content-center">
         <Link href="/about" passHref>
           <a
             onClick={(e) => handleClickClear(e, "/about")}

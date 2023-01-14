@@ -5,7 +5,7 @@ const Header = () => {
   const router = useRouter();
 
   return (
-    <nav className="absolute top-0 left-0 w-full h-[15vh] flex justify-between items-center z-10">
+    <nav className="sticky top-0 left-0 w-full h-[15vh] min-h-[15vh] flex justify-between items-center z-99">
       <Link href="/home" passHref>
         <a className="text-2xl pl-8 py-4 font-medium">
           Cris Aldreyn | video editor services
@@ -61,7 +61,7 @@ const Header = () => {
         <div className="w-5 h-1 bg-gray-600 mb-1 rounded"></div>
         <div className="w-5 h-1 bg-gray-600 mb-1 rounded"></div>
         <div className="w-5 h-1 bg-gray-600 mb-1 rounded"></div>
-        <div className="absolute top-30 -right-full w-2/12 opacity-0 group-focus:right-10 group-focus:opacity-100 transition-all duration-300 bg-zinc-800 rounded-md">
+        <div className="absolute top-30 -right-1/[50] w-2/12 opacity-0 group-focus:right-10 group-focus:opacity-100 transition-all duration-300 bg-zinc-800 rounded-md">
           <ul className="flex flex-col items-center w-full pt-4">
             <Link href="home" passHref>
               <a
