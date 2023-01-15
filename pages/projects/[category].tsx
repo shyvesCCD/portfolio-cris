@@ -34,7 +34,7 @@ const ProjectsCategory: NextPage<CategoryWhenNotArray> = ({
               ></iframe>
             </div>
           </div>
-          <div className="flex flex-col text-base w-full lg:w-2/3 overflow-y-scroll lg:m-14 my-10 max-h-[38rem]">
+          <div className="flex flex-col text-base w-full lg:w-2/3 overflow-y-scroll lg:m-14 my-10 max-h-[100rem]">
             <h1 className="text-center mb-9 font-medium text-4xl">
               {category.attributes.category}
             </h1>

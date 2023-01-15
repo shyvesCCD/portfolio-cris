@@ -33,6 +33,7 @@ const About: NextPage<AboutProps> = ({ textArray }) => {
   function handleClickClear(e: any, href: string) {
     e.preventDefault();
     router.push(href);
+
     setCounter(0);
   }
 
@@ -71,7 +72,10 @@ const About: NextPage<AboutProps> = ({ textArray }) => {
             <div className="ml-28 h-2/3 lg:border border-b-4 rounded-lg border-gray-600"></div>
           </div>
           <div className="flex items-center transition-all duration-300">
-            <button className="mr-7 h-8 w-8" onClick={() => handleClickBack()}>
+            <button
+              className={counter === 0 ? "hidden  " : "mr-7 h-8 w-8"}
+              onClick={() => handleClickBack()}
+            >
               <Image
                 className="fill-gray-300"
                 src={backArrow}
@@ -84,7 +88,12 @@ const About: NextPage<AboutProps> = ({ textArray }) => {
                 dangerouslySetInnerHTML={{ __html: textArray[counter] }}
               ></p>
             </div>
-            <button className="ml-7 h-8 w-8" onClick={() => handleClickNext()}>
+            <button
+              className={
+                counter === textArray.length - 1 ? "hidden" : "ml-7 h-8 w-8"
+              }
+              onClick={() => handleClickNext()}
+            >
               <Image
                 className="fill-gray-300"
                 src={nextArrow}
