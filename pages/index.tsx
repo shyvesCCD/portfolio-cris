@@ -1,8 +1,10 @@
 import type { NextPage } from "next";
+import { useRouter } from "next/router";
 import HeadComponent from "../components/HeadComponent";
 
 const Home: NextPage = () => {
   const languagens = ["PORTUGUÊS", "ESPAÑOL", "ENGLISH", "한국어"];
+  const router = useRouter();
 
   return (
     <div className="w-screen h-screen flex flex-col justify-center items-center">
@@ -12,7 +14,11 @@ const Home: NextPage = () => {
       */}
       {/*TODO: Após isso comunicar a Cris de como isso será feito.*/}
       {languagens.map((language) => (
-        <button key={language} className="hover:underline text-4xl mt-4">
+        <button
+          onClick={() => router.push("/home")}
+          key={language}
+          className="hover:underline text-4xl mt-4"
+        >
           {language}
         </button>
       ))}
