@@ -1,13 +1,20 @@
 import Link from "next/link";
+import classNames from "classnames";
 import { useRouter } from "next/router";
+import { useState } from "react";
 
 const Header = () => {
   const router = useRouter();
+  const [opened, setOpened] = useState(false);
+
+  function handleOpenMenu() {
+    setOpened(!opened);
+  }
 
   return (
-    <nav className="absolute top-0 left-0 w-full h-[15vh] flex justify-between items-center z-10">
+    <nav className="absolute w-full h-[15vh] flex justify-between items-center z-10">
       <Link href="/home" passHref>
-        <a className="text-2xl pl-8 py-4 font-medium">
+        <a className="lg:text-2xl text-xl mx-8 font-medium">
           Cris Aldreyn | video editor services
         </a>
       </Link>
@@ -57,59 +64,66 @@ const Header = () => {
           </a>
         </Link>
       </ul>
-      <button className="block md:hidden py-3 px-4 mx-2 rounded focus:outline-none hover:brightness-90 group">
-        <div className="w-5 h-1 bg-gray-600 mb-1 rounded"></div>
-        <div className="w-5 h-1 bg-gray-600 mb-1 rounded"></div>
-        <div className="w-5 h-1 bg-gray-600 mb-1 rounded"></div>
-        <div className="absolute top-30 -right-full w-2/12 opacity-0 group-focus:right-10 group-focus:opacity-100 transition-all duration-300 bg-zinc-800 rounded-md">
-          <ul className="flex flex-col items-center w-full pt-4">
-            <Link href="home" passHref>
-              <a
-                className={
-                  router.pathname == "/home"
-                    ? "w-full font-bold px-6 pb-4 hover:brightness-90 text-xl"
-                    : "w-full px-6 py-4 hover:brightness-90 text-xl"
-                }
-              >
-                home
-              </a>
-            </Link>
-            <Link href="about" passHref>
-              <a
-                className={
-                  router.pathname == "/about"
-                    ? "w-full font-bold px-6 py-4 hover:brightness-90 text-xl"
-                    : "w-full px-6 py-4 hover:brightness-90 text-xl"
-                }
-              >
-                about
-              </a>
-            </Link>
-            <Link href="projects" passHref>
-              <a
-                className={
-                  router.pathname == "/projects"
-                    ? "w-full font-bold px-6 py-4 hover:brightness-90 text-xl"
-                    : "w-full px-6 py-4 hover:brightness-90 text-xl"
-                }
-              >
-                projects
-              </a>
-            </Link>
-            <Link href="services" passHref>
-              <a
-                className={
-                  router.pathname == "/services"
-                    ? "w-full font-bold px-6 py-4 hover:brightness-90 text-xl"
-                    : "w-full px-6 py-4 hover:brightness-90 text-xl"
-                }
-              >
-                services
-              </a>
-            </Link>
-          </ul>
+      <div
+        onClick={handleOpenMenu}
+        className={classNames(`md:hidden tham tham-e-slider tham-w-6 mr-2`, {
+          "tham-active": opened,
+        })}
+      >
+        <div className="tham-box">
+          {opened ? (
+            <div className="flex flex-col rounded-lg z-50 bg-gray-600 w-fit h-fit top-10 float-right">
+              <Link href="/home" passHref>
+                <a
+                  className={
+                    router.asPath.includes("/home")
+                      ? "font-bold mx-6 my-4 hover:brightness-90 text-base"
+                      : "mx-6 my-4 hover:brightness-90 text-base"
+                  }
+                >
+                  home
+                </a>
+              </Link>
+              <Link href="/about" passHref>
+                <a
+                  className={
+                    router.asPath.includes("/about")
+                      ? "font-bold mx-6 my-4 hover:brightness-90 text-base"
+                      : "mx-6 my-4 hover:brightness-90 text-base"
+                  }
+                >
+                  about
+                </a>
+              </Link>
+              <Link href="/projects" passHref>
+                <a
+                  className={
+                    router.asPath.includes("/projects")
+                      ? "font-bold mx-6 my-4 hover:brightness-90 text-base"
+                      : "mx-6 my-4 hover:brightness-90 text-base"
+                  }
+                >
+                  projects
+                </a>
+              </Link>
+              <Link href="/services" passHref>
+                <a
+                  className={
+                    router.asPath.includes("/services")
+                      ? "font-bold mx-6 py-4 hover:brightness-90 text-base"
+                      : "mx-6 my-4 hover:brightness-90 text-base"
+                  }
+                >
+                  services
+                </a>
+              </Link>
+            </div>
+          ) : (
+            <></>
+          )}
+          <div className="tham-inner bg-gray-400" />
         </div>
-      </button>
+      </div>
     </nav>
   );
 };
