@@ -43,7 +43,7 @@ const About: NextPage<AboutProps> = ({ textArray }) => {
         <Header />
         <section className="h-[85vh] lg:grid lg:grid-cols-[40%_60%] flex flex-col snap-center shrink-0">
           <div className="flex justify-center items-center">
-            <div className="relative h-0 overflow-hidden max-w-full w-full pb-aspect mx-10">
+            <div className="relative h-0 overflow-hidden max-w-full w-full pb-aspect lg:mt-0 mt-[15vh] mx-10">
               <iframe
                 src="https://www.youtube.com/embed/jfKfPfyJRdk"
                 className="absolute top-0 left-0 w-full h-full mx-auto "
@@ -67,9 +67,9 @@ const About: NextPage<AboutProps> = ({ textArray }) => {
           </div>
         </section>
         <section className="h-[85vh] lg:grid lg:grid-cols-[30%_70%] snap-center shrink-0 flex items-center flex-col">
-          <div className="flex justify-center h-full items-center">
+          <div className="flex lg:flex-row flex-col justify-center h-full items-center">
             <SideBar handleClickClear={handleClickClear} />
-            <div className="ml-28 h-2/3 lg:border border-b-4 rounded-lg border-gray-600"></div>
+            <div className="ml-28 lg:h-2/3 lg:border border-b-4 rounded-lg border-gray-600" />
           </div>
           <div className="flex items-center transition-all duration-300">
             <button
