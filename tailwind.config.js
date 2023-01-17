@@ -25,5 +25,5 @@ module.exports = {
       inset: ["group-focus"],
     },
   },
-  plugins: [],
+  plugins: [require("tailwind-hamburgers")],
 };
