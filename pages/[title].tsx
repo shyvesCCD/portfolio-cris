@@ -38,11 +38,11 @@ const About: NextPage<AboutProps> = ({ textArray }) => {
 
   return (
     <>
-      <div className="h-screen flex flex-col snap-y snap-mandatory overflow-y-scroll">
+      <div className="h-screen flex flex-col shrink-0 snap-y snap-mandatory overflow-y-scroll">
         <Header />
         <section className="h-[85vh] mt-[15vh] lg:grid lg:grid-cols-[40%_60%] flex flex-col snap-center shrink-0">
           <div className="flex justify-center items-center">
-            <div className="relative h-0 overflow-hidden max-w-full w-full pb-aspect mx-10">
+            <div className="relative lg:h-0 mt-[8vh] overflow-hidden max-w-full w-full pb-aspect mx-10">
               <iframe
                 src="https://www.youtube.com/embed/jfKfPfyJRdk"
                 className="absolute top-0 left-0 w-full h-full mx-auto "
@@ -50,8 +50,8 @@ const About: NextPage<AboutProps> = ({ textArray }) => {
               ></iframe>
             </div>
           </div>
-          <div className="flex flex-col items-center justify-center gap-9 mx-10">
-            <h1 className="lg:mt-0 mt-10 text-3xl font-bold">
+          <div className="flex flex-col items-center justify-center text-center gap-9 mx-10">
+            <h1 className="lg:mt-0 mt-10 lg:text-3xl text-2xl font-bold">
               Here’s a little bit about me.
             </h1>
             <p className="text-xl">
@@ -65,26 +65,34 @@ const About: NextPage<AboutProps> = ({ textArray }) => {
             </p>
           </div>
         </section>
-        <section className="h-[85vh] mt-[15vh] lg:grid lg:grid-cols-[30%_70%] snap-center shrink-0 flex items-center">
-          <div className="flex justify-center h-full items-center">
+        <section className="h-[85vh] mt-[15vh] lg:grid lg:grid-cols-[30%_70%] snap-center shrink-0 flex flex-col items-center justify-center">
+          <div className="flex lg:flex-row flex-col lg:justify-center lg:h-full h-[15vh] lg:items-center">
             <SideBar handleClickClear={handleClickClear} />
-            <div className="ml-28 h-2/3 border rounded-lg border-gray-600"></div>
+            <div className="lg:ml-28 lg:h-2/3 lg:flex lg:border lg:rounded-lg lg:border-gray-600 hidden"></div>
           </div>
           <div className="flex items-center transition-all duration-300">
-            <button className="mr-7 h-8 w-8" onClick={() => handleClickBack()}>
+            <button
+              className={counter === 0 ? "hidden  " : "mx-7 h-8 w-8"}
+              onClick={() => handleClickBack()}
+            >
               <Image
                 className="fill-gray-300"
                 src={backArrow}
                 alt="Arrow to back"
               />
             </button>
-            <div className="flex flex-col justify-center items-center gap-8 lg:w-2/3 w-full text-center">
+            <div className="flex flex-col justify-center items-center gap-8 lg:w-2/3 w-full text-center overflow-y-scroll">
               <p
-                className="leading-8 text-2xl"
+                className="leading-8 lg:text-2xl text-xl mx-7"
                 dangerouslySetInnerHTML={{ __html: textArray[counter] }}
               ></p>
             </div>
-            <button className="ml-7 h-8 w-8" onClick={() => handleClickNext()}>
+            <button
+              className={
+                counter === textArray.length - 1 ? "hidden" : "mx-7 h-8 w-8"
+              }
+              onClick={() => handleClickNext()}
+            >
               <Image
                 className="fill-gray-300"
                 src={nextArrow}
