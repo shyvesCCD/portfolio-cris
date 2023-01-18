@@ -9,7 +9,7 @@ const Card = ({ text }: CardProps) => {
 
   return (
     <button
-      className="lg:w-3/12 lg:h-48 lg:mt-0 mt-7 w-2/3 h-36 mx-9 text-center border-2 border-gray-400 rounded-sm hover:brightness-75"
+      className="lg:w-3/12 lg:h-48 lg:mt-0 mt-7 w-2/3 h-36 mx-9 text-center border border-gray-400 rounded-md hover:brightness-75"
       onClick={() =>
         router.push(`/projects/${text.toLowerCase().replace(/ /g, "")}`)
       }
