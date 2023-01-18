@@ -7,14 +7,14 @@ const HeaderCategories = ({ categories }: any) => {
   return (
     <nav className="h-[15vh] flex items-center justify-between">
       <div className="w-full">
-        <ul className="flex flex-wrap items-center justify-center text-base cursor-pointer place-content-center">
+        <ul className="flex flex-wrap lg:items-center lg:justify-center text-base place-content-center">
           {categories.map((category: string) => (
             <Link key={category} href={category.replace(/\s/g, "")} passHref>
               <a
                 className={
                   router.asPath == `/projects/${category.replace(/\s/g, "")}`
-                    ? "font-bold px-6 py-4 hover:brightness-90 text-xl"
-                    : "px-6 py-4 hover:brightness-90 text-xl"
+                    ? "font-bold lg:mx-6 lg:my-4 mr-4 hover:brightness-90 text-xl"
+                    : "lg:mx-6 lg:mr-4 mx-4 hover:brightness-90 text-xl"
                 }
               >
                 {category}
