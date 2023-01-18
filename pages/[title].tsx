@@ -70,7 +70,7 @@ const About: NextPage<AboutProps> = ({ textArray }) => {
             <SideBar handleClickClear={handleClickClear} />
             <div className="lg:ml-28 lg:h-2/3 lg:flex lg:border lg:rounded-lg lg:border-gray-600 hidden"></div>
           </div>
-          <div className="flex items-center transition-all duration-300">
+          <div className="flex items-center lg:ml-10">
             <button
               className={counter === 0 ? "hidden  " : "mx-7 h-8 w-8"}
               onClick={() => handleClickBack()}
