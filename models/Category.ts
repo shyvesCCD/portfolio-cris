@@ -24,7 +24,7 @@ export interface Category {
 }
 
 export interface AboutProps {
-  textArray: string;
+  textArray: string[];
 }
 
 /*TODO!: Preciso melhorar o nome dessas interfaces urgente.*/
