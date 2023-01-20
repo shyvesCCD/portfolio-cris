@@ -3,6 +3,7 @@ import Header from "../components/Header";
 import Image from "next/image";
 import profilePic from "../public/crisphoto.jpg";
 import setupCris from "../public/setupCris.jpg";
+import WaterMark from "../components/Watermark";
 
 const InicialPage: NextPage = () => {
   return (
@@ -34,6 +35,7 @@ const InicialPage: NextPage = () => {
             objectFit="cover"
           />
         </main>
+        <WaterMark />
       </div>
     </>
   );

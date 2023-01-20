@@ -2,6 +2,7 @@ import type { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import { useRouter } from "next/router";
 import Header from "../../components/Header";
 import HeaderCategories from "../../components/HeaderCategories";
+import WaterMark from "../../components/Watermark";
 import { api } from "../../lib/axios";
 import { loadCategory } from "../../lib/load-category";
 import { Categoria, CategoryWhenNotArray } from "../../models/Category";
@@ -50,6 +51,7 @@ const ProjectsCategory: NextPage<CategoryWhenNotArray> = ({
           </div>
         </div>
       </main>
+      <WaterMark />
     </div>
   );
 };

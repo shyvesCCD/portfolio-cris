@@ -12,6 +12,7 @@ import Image from "next/image";
 import nextArrow from "../public/next-arrow-icon.svg";
 import backArrow from "../public/back-arrow-icon.svg";
 import Slider from "../components/Slider";
+import WaterMark from "../components/Watermark";
 
 const About: NextPage<AboutProps> = ({ textArray }) => {
   const router = useRouter();
@@ -117,6 +118,7 @@ const About: NextPage<AboutProps> = ({ textArray }) => {
             </button>
           </div>
         </section>
+        <WaterMark />
       </div>
     </>
   );

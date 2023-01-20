@@ -3,6 +3,7 @@ import Header from "../../components/Header";
 import { api } from "../../lib/axios";
 import Card from "../../components/Cards";
 import { Category, ElementProps } from "../../models/Category";
+import WaterMark from "../../components/Watermark";
 
 const Projects: NextPage<Category> = ({ category }) => {
   return (
@@ -18,6 +19,7 @@ const Projects: NextPage<Category> = ({ category }) => {
             <h1>Não foi possível carregar as categorias.</h1>
           )}
         </div>
+        <WaterMark />
       </div>
     </>
   );
