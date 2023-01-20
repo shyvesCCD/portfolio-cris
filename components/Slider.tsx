@@ -9,8 +9,8 @@ const Slider = ({ index, currentIndex }: SliderProps) => {
       <span
         className={
           currentIndex == index
-            ? "mx-2 rounded-full w-4 h-4 bg-gray-800 "
-            : "mx-2 rounded-full w-4 h-4 bg-gray-500 "
+            ? "mx-2 rounded-full w-4 h-4 bg-white"
+            : "mx-2 rounded-full w-4 h-4 bg-gray-500"
         }
       />
     </div>
