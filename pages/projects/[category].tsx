@@ -86,5 +86,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
       textArray,
       responseArray,
     },
+    revalidate: 60,
   };
 };
