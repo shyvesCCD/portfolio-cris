@@ -11,6 +11,7 @@ import Image from "next/image";
 
 import nextArrow from "../public/next-arrow-icon.svg";
 import backArrow from "../public/back-arrow-icon.svg";
+import Slider from "../components/Slider";
 
 const About: NextPage<AboutProps> = ({ textArray }) => {
   const router = useRouter();
@@ -68,7 +69,13 @@ const About: NextPage<AboutProps> = ({ textArray }) => {
         <section className="h-[85vh] mt-[15vh] lg:grid lg:grid-cols-[30%_70%] snap-center shrink-0 flex flex-col items-center justify-center">
           <div className="flex lg:flex-row flex-col lg:justify-center lg:h-full h-[15vh] lg:items-center">
             <SideBar handleClickClear={handleClickClear} />
-            <div className="lg:ml-28 lg:h-2/3 lg:flex lg:border lg:rounded-lg lg:border-gray-600 hidden"></div>
+            <div
+              className={
+                counter === 0
+                  ? "lg:ml-28 lg:h-2/3 lg:flex lg:border lg:rounded-lg lg:border-gray-600 hidden"
+                  : "lg:ml-28 lg:h-2/3 lg:flex lg:border lg:rounded-lg lg:border-gray-600 hidden"
+              }
+            ></div>
           </div>
           <div className="flex items-center lg:ml-10">
             <button
@@ -82,8 +89,17 @@ const About: NextPage<AboutProps> = ({ textArray }) => {
               />
             </button>
             <div className="flex flex-col justify-center items-center gap-8 lg:w-2/3 w-full text-center overflow-y-scroll">
+              <div className="flex">
+                {textArray.map((element: string, index) => (
+                  <Slider key={index} index={index} currentIndex={counter} />
+                ))}
+              </div>
               <p
-                className="leading-8 lg:text-2xl text-xl mx-7"
+                className={
+                  counter === textArray.length - 1
+                    ? "mr-14 leading-8 lg:text-2xl text-xl mx-7"
+                    : "leading-8 lg:text-2xl text-xl mx-7"
+                }
                 dangerouslySetInnerHTML={{ __html: textArray[counter] }}
               ></p>
             </div>
