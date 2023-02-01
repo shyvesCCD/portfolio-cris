@@ -33,4 +33,11 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
+## URL
+
 This project was deploy on https://portolio-cris.vercel.app
+
+## Need to finish
+
+[] Create the time component.
+[] Support for all language.
