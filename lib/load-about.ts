@@ -2,7 +2,7 @@ import { ParamsPropsAbout } from "../models/Category";
 import { api } from "./axios";
 
 export async function loadAbout(params: ParamsPropsAbout) {
-    const { data } = await api.get("/abouts");
+    const { data } = await api.get("/abouts?populate=*");
 
     const response = data.data;
 
