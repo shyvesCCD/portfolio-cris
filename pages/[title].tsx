@@ -13,6 +13,28 @@ import nextArrow from "../public/next-arrow-icon.svg";
 import backArrow from "../public/back-arrow-icon.svg";
 import Slider from "../components/Slider";
 import WaterMark from "../components/Watermark";
+import Timeline from "../components/Timeline";
+
+const items = [
+  {
+    id: 1,
+    title: "First event",
+    date: "1992-06-12",
+    description: "This is the first event on the timeline",
+  },
+  {
+    id: 2,
+    title: "Second event",
+    date: "2005-09-28",
+    description: "This is the second event on the timeline",
+  },
+  {
+    id: 3,
+    title: "Third event",
+    date: "2018-03-01",
+    description: "This is the third event on the timeline",
+  },
+];
 
 const About: NextPage<AboutProps> = ({ textArray }) => {
   const router = useRouter();
@@ -40,7 +62,7 @@ const About: NextPage<AboutProps> = ({ textArray }) => {
 
   return (
     <>
-      <div className="h-screen flex flex-col shrink-0 snap-y snap-mandatory overflow-y-scroll">
+      <div className="overflow-auto h-screen flex flex-col shrink-0 snap-y snap-mandatory overflow-y-scroll">
         <Header />
         <section className="h-[85vh] mt-[15vh] lg:grid lg:grid-cols-[40%_60%] flex flex-col snap-center shrink-0">
           <div className="flex justify-center items-center">
@@ -67,56 +89,8 @@ const About: NextPage<AboutProps> = ({ textArray }) => {
             </p>
           </div>
         </section>
-        <section className="h-[85vh] mt-[15vh] lg:grid lg:grid-cols-[30%_70%] snap-center shrink-0 flex flex-col items-center justify-center">
-          <div className="flex lg:flex-row flex-col lg:justify-center lg:h-full h-[15vh] lg:items-center">
-            <SideBar handleClickClear={handleClickClear} />
-            <div
-              className={
-                counter === 0
-                  ? "lg:ml-28 lg:h-2/3 lg:flex lg:border lg:rounded-lg lg:border-gray-600 hidden"
-                  : "lg:ml-28 lg:h-2/3 lg:flex lg:border lg:rounded-lg lg:border-gray-600 hidden"
-              }
-            ></div>
-          </div>
-          <div className="flex items-center lg:ml-10">
-            <button
-              className={counter === 0 ? "hidden  " : "mx-7 h-8 w-8"}
-              onClick={() => handleClickBack()}
-            >
-              <Image
-                className="fill-gray-300"
-                src={backArrow}
-                alt="Arrow to back"
-              />
-            </button>
-            <div className="flex flex-col justify-center items-center gap-8 lg:w-2/3 w-full text-center overflow-y-scroll">
-              <div className="flex">
-                {textArray.map((element: string, index) => (
-                  <Slider key={index} index={index} currentIndex={counter} />
-                ))}
-              </div>
-              <p
-                className={
-                  counter === textArray.length - 1
-                    ? "mr-14 leading-8 lg:text-2xl text-xl mx-7"
-                    : "leading-8 lg:text-2xl text-xl mx-7"
-                }
-                dangerouslySetInnerHTML={{ __html: textArray[counter] }}
-              ></p>
-            </div>
-            <button
-              className={
-                counter === textArray.length - 1 ? "hidden" : "mx-7 h-8 w-8"
-              }
-              onClick={() => handleClickNext()}
-            >
-              <Image
-                className="fill-gray-300"
-                src={nextArrow}
-                alt="Arrow to next"
-              />
-            </button>
-          </div>
+        <section className="h-[85vh] mt-[15vh] snap-center shrink-0 flex flex-col items-center justify-center">
+          <Timeline items={items} />
         </section>
         <WaterMark />
       </div>

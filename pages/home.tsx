@@ -1,11 +1,14 @@
 import type { NextPage } from "next";
 import Header from "../components/Header";
 import Image from "next/image";
-import profilePic from "../public/crisphoto.jpg";
-import setupCris from "../public/setupCris.jpg";
+import BOTTLE from "../public/BOTTLE.svg";
+import TWOHANDS from "../public/TWOHANDS.svg";
 import WaterMark from "../components/Watermark";
+import { useRouter } from "next/router";
 
 const InicialPage: NextPage = () => {
+  const router = useRouter();
+
   return (
     <>
       <div className="h-screen w-full flex flex-col">
@@ -13,7 +16,7 @@ const InicialPage: NextPage = () => {
         <main className="lg:grid lg:grid-cols-3 flex flex-col justify-center mt-[15vh] h-[85vh] w-full">
           <Image
             className="lg:visible invisible"
-            src={profilePic}
+            src={TWOHANDS}
             alt="Profile picture"
             objectFit="cover"
           />
@@ -24,18 +27,21 @@ const InicialPage: NextPage = () => {
             <p className="lg:text-2xl lg:mx-5 text-xl mb-4 mx-5 text-center">
               I’m a video editor based in Porto, Portugal.
             </p>
-            <p className="lg:text-2xl lg:mx-5 text-xl mx-5 text-center">
-              But I can help you tell your story wherever you are.
+            <p className="lg:text-2xl lg:mx-5 text-xl mb-4 mx-5 text-center">
+              Let's bring your story to life.
             </p>
+            <p className="lg:text-2xl lg:mx-5 font-bold mb-4 text-xl mx-5 text-center">
+              Wherever you are.
+            </p>
+            <button className="font-bold text-2xl p-2 border-4 rounded-sm border-black" onClick={() => router.push('/services')}>Book a chat</button>
           </div>
           <Image
             className="lg:visible invisible"
-            src={setupCris}
+            src={BOTTLE}
             alt="Setup of the author"
             objectFit="cover"
           />
         </main>
-        <WaterMark />
       </div>
     </>
   );
