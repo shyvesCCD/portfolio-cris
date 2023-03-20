@@ -18,17 +18,21 @@ export interface Category {
       publishedAt: string;
       description: string;
       linkURL: string;
+      fotoCategoria: any;
     };
   }[];
   text: string;
 }
 
 export interface AboutProps {
+  data: any;
   textArray: string[];
+  textArray2: string[];
 }
 
 /*TODO!: Preciso melhorar o nome dessas interfaces urgente.*/
 export interface CategoryWhenNotArray {
+  retorno: any;
   category: {
     id: number;
     attributes: {
@@ -76,6 +80,7 @@ export interface ElementProps {
     publishedAt: string;
     description: string;
     linkURL: string;
+    fotoCategoria: any;
   };
 }
 
