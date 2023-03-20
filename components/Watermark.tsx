@@ -1,16 +1,24 @@
+import Image from "next/image";
 import { useRouter } from "next/router";
-import { FiMail } from "react-icons/fi";
+import BOTTLE from "../public/BOTTLE.svg";
 
 const WaterMark = () => {
   const router = useRouter();
 
   return (
-    <div
-      onClick={() => router.push("/services")}
-      className="bg-zinc-900 hover:w-16 hover:h-16 transition-all w-14 h-14 rounded-md absolute bottom-3 right-3 flex items-center justify-center cursor-pointer"
-    >
-      <FiMail className="fill-zinc-800 w-7 h-7" />
-    </div>
+    <>
+      <div
+        onClick={() => router.push("/services")}
+        className="hover:w-16 hover:h-16 transition-all w-14 h-14 absolute bottom-3 right-3 flex items-center justify-center cursor-pointer mx-8 p-2 bg-white rounded-lg shadow-lg"
+      >
+        <Image
+          className="lg:visible invisible fill-zinc-400"
+          src={BOTTLE}
+          alt="Bottle for email"
+          objectFit="contain"
+        />
+      </div>
+    </>
   );
 };
 
