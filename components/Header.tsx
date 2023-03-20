@@ -7,9 +7,9 @@ const Header = () => {
   const router = useRouter();
   const [opened, setOpened] = useState(false);
 
-  function handleOpenMenu() {
+  const handleOpenMenu = () => {
     setOpened(!opened);
-  }
+  };
 
   return (
     <nav className="absolute w-full h-[15vh] flex justify-between items-center z-10">
@@ -18,7 +18,7 @@ const Header = () => {
           Cris Aldreyn | video editor services
         </a>
       </Link>
-      <ul className="hidden md:flex items-center text-base cursor-pointer">
+      <ul className="hidden md:flex items-center text-base cursor-pointer mx-8">
         <Link href="/home" passHref>
           <a
             className={
