@@ -17,6 +17,7 @@ const AboutPageComponent = ({
     <>
       <div className="flex flex-col items-center justify-center gap-5">
         <Image
+          className="invert"
           src={`https://cris-backend-production.up.railway.app${image}`}
           alt=""
           width={400}
@@ -38,6 +39,7 @@ const AboutPageComponent = ({
             image2.data.map((element: any, index: any) => (
               <div key={index} className="mx-10">
                 <Image
+                  className="invert"
                   key={index}
                   alt=""
                   src={`https://cris-backend-production.up.railway.app${element.attributes.url}`}

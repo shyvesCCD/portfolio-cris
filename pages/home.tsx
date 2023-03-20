@@ -14,7 +14,7 @@ const InicialPage: NextPage = () => {
         <Header />
         <main className="lg:grid lg:grid-cols-3 flex flex-col justify-center mt-[15vh] h-[85vh] w-full">
           <Image
-            className="lg:visible invisible"
+            className="lg:visible invisible invert"
             src={TWOHANDS}
             alt="Profile picture"
             objectFit="cover"
@@ -32,15 +32,9 @@ const InicialPage: NextPage = () => {
             <p className="lg:text-2xl lg:mx-5 font-bold mb-4 text-xl mx-5 text-center">
               Wherever you are.
             </p>
-            <button
-              className="font-bold text-2xl p-2 border-4 rounded-sm border-black"
-              onClick={() => router.push("/services")}
-            >
-              Book a chat
-            </button>
           </div>
           <Image
-            className="lg:visible invisible"
+            className="lg:visible invisible invert"
             src={BOTTLE}
             alt="Setup of the author"
             objectFit="cover"

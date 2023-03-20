@@ -15,7 +15,7 @@ const Card = ({ image, text }: CardProps) => {
 
   return (
     <button
-      className="mx-20 transition-all hover:brightness-90 hover:font-bold flex justify-center items-center flex-col text-zinc-100 hover:text-black"
+      className="mx-20 transition-all hover:brightness-90 hover:font-bold hover:text-4xl flex justify-center items-center flex-col text-zinc-100"
       onClick={() =>
         router.push(`/projects/${text.toLowerCase().replace(/ /g, "")}`)
       }
@@ -25,6 +25,7 @@ const Card = ({ image, text }: CardProps) => {
       {isHovering ? (
         <>
           <Image
+            className="invert"
             alt=""
             src={`https://cris-backend-production.up.railway.app${image}`}
             width={180}
@@ -35,7 +36,7 @@ const Card = ({ image, text }: CardProps) => {
       ) : (
         <>
           <Image
-            className=""
+            className="invert"
             alt=""
             src={`https://cris-backend-production.up.railway.app${image}`}
             width={180}

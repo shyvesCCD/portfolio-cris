@@ -31,7 +31,7 @@ const ProjectsCategory: NextPage<CategoryWhenNotArray> = ({
         <div className="flex lg:flex-row flex-col">
           <div className="lg:visible invisible flex items-center">
             <Image
-              className="lg:visible invisible"
+              className="lg:visible invisible invert"
               src={`https://cris-backend-production.up.railway.app${retorno.attributes.fotoCategoria.data.attributes.url}`}
               alt=""
               objectFit="contain"
