@@ -28,12 +28,17 @@ const InicialPage: NextPage = () => {
               I’m a video editor based in Porto, Portugal.
             </p>
             <p className="lg:text-2xl lg:mx-5 text-xl mb-4 mx-5 text-center">
-              Let's bring your story to life.
+              Let’s bring your story to life.
             </p>
             <p className="lg:text-2xl lg:mx-5 font-bold mb-4 text-xl mx-5 text-center">
               Wherever you are.
             </p>
-            <button className="font-bold text-2xl p-2 border-4 rounded-sm border-black" onClick={() => router.push('/services')}>Book a chat</button>
+            <button
+              className="font-bold text-2xl p-2 border-4 rounded-sm border-black"
+              onClick={() => router.push("/services")}
+            >
+              Book a chat
+            </button>
           </div>
           <Image
             className="lg:visible invisible"
