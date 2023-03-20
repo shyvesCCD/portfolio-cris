@@ -2,7 +2,7 @@ import { ElementProps, ParamsProps } from "../models/Category";
 import { api } from "./axios";
 
 export async function loadCategory(params: ParamsProps) {
-  const { data } = await api.get("/categories");
+  const { data } = await api.get("/categories?populate=*");
 
   if (!data) return { notFound: true };
 
