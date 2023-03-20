@@ -3,7 +3,6 @@ import Header from "../components/Header";
 import Image from "next/image";
 import BOTTLE from "../public/BOTTLE.svg";
 import TWOHANDS from "../public/TWOHANDS.svg";
-import WaterMark from "../components/Watermark";
 import { useRouter } from "next/router";
 
 const InicialPage: NextPage = () => {

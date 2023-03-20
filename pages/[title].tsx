@@ -1,63 +1,19 @@
 import type { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import { useRouter } from "next/router";
 import Header from "../components/Header";
-import SideBar from "../components/SideBar";
 import { api } from "../lib/axios";
 import { loadAbout } from "../lib/load-about";
 import { AboutProps } from "../models/Category";
 import { mdBoldToStrong } from "../lib/md-bold-strong";
-import { useState } from "react";
-import Image from "next/image";
 
-import nextArrow from "../public/next-arrow-icon.svg";
-import backArrow from "../public/back-arrow-icon.svg";
-import Slider from "../components/Slider";
 import WaterMark from "../components/Watermark";
-import Timeline from "../components/Timeline";
+import AboutPageComponent from "../components/About";
 
-const items = [
-  {
-    id: 1,
-    title: "First event",
-    date: "1992-06-12",
-    description: "This is the first event on the timeline",
-  },
-  {
-    id: 2,
-    title: "Second event",
-    date: "2005-09-28",
-    description: "This is the second event on the timeline",
-  },
-  {
-    id: 3,
-    title: "Third event",
-    date: "2018-03-01",
-    description: "This is the third event on the timeline",
-  },
-];
-
-const About: NextPage<AboutProps> = ({ textArray }) => {
+const About: NextPage<AboutProps> = ({ data, textArray, textArray2 }) => {
   const router = useRouter();
-  const [counter, setCounter] = useState<number>(0);
 
   if (router.isFallback) {
     return <div>Loading...</div>;
-  }
-
-  function handleClickNext() {
-    if (counter == textArray.length - 1) return;
-    setCounter(counter + 1);
-  }
-
-  function handleClickBack() {
-    if (counter === 0) return;
-    setCounter(counter - 1);
-  }
-
-  function handleClickClear(e: any, href: string) {
-    e.preventDefault();
-    router.push(href);
-    setCounter(0);
   }
 
   return (
@@ -76,22 +32,28 @@ const About: NextPage<AboutProps> = ({ textArray }) => {
           </div>
           <div className="flex flex-col items-center justify-center text-center gap-9 mx-10">
             <h1 className="lg:mt-0 mt-10 lg:text-3xl text-2xl font-bold">
-              Here’s a little bit about me.
+              Got 2 minutes?
             </h1>
             <p className="text-xl">
-              You can watch this video to get all the info. (including some fun
-              stuff)
+              <strong>Press Play</strong>
             </p>
             <p className="text-xl">…or scroll down to read the essentials.</p>
-            <p className="text-xl">
-              It’s up to you. But isn’t making videos the reason you’re here
-              after all?
-            </p>
           </div>
         </section>
-        <section className="h-[85vh] mt-[15vh] snap-center shrink-0 flex flex-col items-center justify-center">
-          <Timeline items={items} />
-        </section>
+        {data.map((element: any, index: any) => (
+          <section
+            key={index}
+            className="h-[85vh] mt-[15vh] lg:grid lg:grid-cols-[40%_60%] flex flex-col snap-center shrink-0"
+          >
+            <AboutPageComponent
+              key={index}
+              image={element.attributes.foto.data.attributes.url}
+              description={textArray[index]}
+              description2={textArray2[index]}
+              image2={element.attributes.tools}
+            />
+          </section>
+        ))}
         <WaterMark />
       </div>
     </>
@@ -99,7 +61,7 @@ const About: NextPage<AboutProps> = ({ textArray }) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const { data } = await api.get("/abouts");
+  const { data } = await api.get("/abouts?populate=*");
   const response = data.data;
 
   const paths = response.map(({ attributes }: any) => ({
@@ -114,13 +76,18 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
   const data = await loadAbout(params);
 
-  const textArray = mdBoldToStrong(data[0].attributes.description).split(
-    "SLIDE"
-  );
+  let textArray: any = [];
+  let textArray2: any = [];
+  data.map((element: any) => {
+    textArray2.push(mdBoldToStrong(element.attributes.description2));
+    textArray.push(mdBoldToStrong(element.attributes.description));
+  });
 
   return {
     props: {
+      data,
       textArray,
+      textArray2,
     },
   };
 };

@@ -7,9 +7,10 @@ import WaterMark from "../../components/Watermark";
 import { api } from "../../lib/axios";
 import { loadCategory } from "../../lib/load-category";
 import { Categoria, CategoryWhenNotArray } from "../../models/Category";
-import TWOHANDS from "../../public/TWOHANDS.svg";
+//import TWOHANDS from "../../public/TWOHANDS.svg";
 
 const ProjectsCategory: NextPage<CategoryWhenNotArray> = ({
+  retorno,
   category,
   textArray,
   responseArray,
@@ -28,12 +29,13 @@ const ProjectsCategory: NextPage<CategoryWhenNotArray> = ({
           <HeaderCategories categories={responseArray} />
         </div>
         <div className="flex lg:flex-row flex-col">
-          <div className="flex items-center">
+          <div className="lg:visible invisible flex items-center">
             <Image
               className="lg:visible invisible"
-              src={TWOHANDS}
-              alt="Profile picture"
+              src={`https://cris-backend-production.up.railway.app${retorno.attributes.fotoCategoria.data.attributes.url}`}
+              alt=""
               objectFit="contain"
+              width={500}
               height={500}
             />
           </div>
@@ -41,7 +43,7 @@ const ProjectsCategory: NextPage<CategoryWhenNotArray> = ({
             <h1 className="text-center mb-9 font-medium text-4xl">
               {category.attributes.category}
             </h1>
-            <div className="lg:ml-16 ml-0 ">
+            <div className="lg:ml-16 ml-0 max-h-[512px] mr-10">
               {textArray.map((paragraph) => (
                 <p
                   key={textArray.indexOf(paragraph)}
@@ -87,6 +89,8 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
   const textArray = value[0].attributes.description.split("\n");
 
+  const retorno = value[0];
+
   const responseArray: string[] = [];
 
   response.map((element: any) => {
@@ -95,6 +99,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
   return {
     props: {
+      retorno,
       category: value[0],
       textArray,
       responseArray,

@@ -13,7 +13,11 @@ const Projects: NextPage<Category> = ({ category }) => {
         <div className="mt-[15vh] h-[85vh] flex items-center justify-center flex-wrap">
           {category ? (
             category.map((element: ElementProps) => (
-              <Card text={element.attributes.category} key={element.id} />
+              <Card
+                image={element.attributes.fotoCategoria.data.attributes.url}
+                text={element.attributes.category}
+                key={element.id}
+              />
             ))
           ) : (
             <h1>Não foi possível carregar as categorias.</h1>
@@ -28,7 +32,7 @@ const Projects: NextPage<Category> = ({ category }) => {
 export default Projects;
 
 export const getServerSideProps = async () => {
-  const response = await api.get("categories", {
+  const response = await api.get("categories?populate=*", {
     headers: {
       Accept: "application/json",
     },
