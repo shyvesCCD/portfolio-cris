@@ -121,6 +121,7 @@ const ServicePage: React.FC = () => {
                       <option value="option1">Fiction</option>
                       <option value="option2">Documentary</option>
                       <option value="option3">Advertising</option>
+                      <option value="option3">Learning</option>
                       <option value="option3">Social Media</option>
                     </select>
                   </div>

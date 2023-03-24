@@ -47,6 +47,21 @@ const InicialPage: NextPage = () => {
             <p className="lg:text-2xl lg:mx-5 font-bold mb-4 text-xl mx-5 text-center">
               Wherever you are.
             </p>
+            {theme == "light" ? (
+              <button
+                className="font-bold text-2xl p-2 border-4 rounded-sm border-black hover:shadow-lg"
+                onClick={() => router.push("/services")}
+              >
+                Book a chat
+              </button>
+            ) : (
+              <button
+                className="font-bold text-2xl p-2 border-4 rounded-sm"
+                onClick={() => router.push("/services")}
+              >
+                Book a chat
+              </button>
+            )}
           </div>
           {theme == "light" ? (
             <div className="m-10">
