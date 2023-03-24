@@ -16,7 +16,7 @@ const Header = () => {
     <nav className="absolute w-full h-[15vh] flex justify-between items-center z-10">
       <Link href="/home" passHref>
         <a className="lg:text-2xl text-xl mx-8 font-medium">
-          Cris Aldreyn | video editor services
+          Cris Aldreyn | video editor
         </a>
       </Link>
       <ul className="hidden md:flex items-center text-base cursor-pointer mx-8">
