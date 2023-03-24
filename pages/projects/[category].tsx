@@ -1,4 +1,5 @@
 import type { GetStaticPaths, GetStaticProps, NextPage } from "next";
+import { useTheme } from "next-themes";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import Header from "../../components/Header";
@@ -16,6 +17,7 @@ const ProjectsCategory: NextPage<CategoryWhenNotArray> = ({
   responseArray,
 }) => {
   const router = useRouter();
+  const { theme } = useTheme();
 
   if (router.isFallback) {
     return <div>Loading...</div>;
@@ -30,14 +32,25 @@ const ProjectsCategory: NextPage<CategoryWhenNotArray> = ({
         </div>
         <div className="flex lg:flex-row flex-col">
           <div className="lg:visible invisible flex items-center">
-            <Image
-              className="lg:visible invisible invert"
-              src={`https://cris-backend-production.up.railway.app${retorno.attributes.fotoCategoria.data.attributes.url}`}
-              alt=""
-              objectFit="contain"
-              width={500}
-              height={500}
-            />
+            {theme == "light" ? (
+              <Image
+                className="lg:visible invisible"
+                src={`https://cris-backend-production.up.railway.app${retorno.attributes.fotoCategoria.data.attributes.url}`}
+                alt=""
+                objectFit="contain"
+                width={500}
+                height={500}
+              />
+            ) : (
+              <Image
+                className="lg:visible invisible invert"
+                src={`https://cris-backend-production.up.railway.app${retorno.attributes.fotoCategoria.data.attributes.url}`}
+                alt=""
+                objectFit="contain"
+                width={500}
+                height={500}
+              />
+            )}
           </div>
           <div className="flex flex-col text-base w-full lg:w-2/3 overflow-auto lg:mr-10 my-10 max-h-[38rem]">
             <h1 className="text-center mb-9 font-medium text-4xl">

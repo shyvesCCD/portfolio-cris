@@ -2,6 +2,7 @@ import Link from "next/link";
 import classNames from "classnames";
 import { useRouter } from "next/router";
 import { useState } from "react";
+import ThemeChanger from "./ThemeChanger";
 
 const Header = () => {
   const router = useRouter();
@@ -23,8 +24,8 @@ const Header = () => {
           <a
             className={
               router.asPath.includes("/home")
-                ? "font-bold px-6 py-4 hover:brightness-90 text-xl"
-                : "px-6 py-4 hover:brightness-90 text-xl"
+                ? "brightness-125 px-6 py-4 hover:brightness-80 text-xl"
+                : "px-6 py-4 hover:brightness-80 text-xl"
             }
           >
             home
@@ -34,8 +35,8 @@ const Header = () => {
           <a
             className={
               router.asPath.includes("/about")
-                ? "font-bold px-6 py-4 hover:brightness-90 text-xl"
-                : "px-6 py-4 hover:brightness-90 text-xl"
+                ? "px-6 py-4 brightness-125 hover:brightness-80 text-xl"
+                : "px-6 py-4 hover:brightness-80 text-xl"
             }
           >
             about
@@ -45,8 +46,8 @@ const Header = () => {
           <a
             className={
               router.asPath.includes("/projects")
-                ? "font-bold px-6 py-4 hover:brightness-90 text-xl"
-                : "px-6 py-4 hover:brightness-90 text-xl"
+                ? "brightness-125 px-6 py-4 hover:brightness-80 text-xl"
+                : "px-6 py-4 hover:brightness-80 text-xl"
             }
           >
             projects
@@ -56,13 +57,14 @@ const Header = () => {
           <a
             className={
               router.asPath.includes("/services")
-                ? "font-bold px-6 py-4 hover:brightness-90 text-xl"
-                : "px-6 py-4 hover:brightness-90 text-xl"
+                ? "brightness-125 px-6 py-4 hover:brightness-80 text-xl"
+                : "px-6 py-4 hover:brightness-80 text-xl"
             }
           >
             services
           </a>
         </Link>
+        <ThemeChanger />
       </ul>
       <div
         onClick={handleOpenMenu}
@@ -77,8 +79,8 @@ const Header = () => {
                 <a
                   className={
                     router.asPath.includes("/home")
-                      ? "font-bold mx-6 my-4 hover:brightness-90 text-base"
-                      : "mx-6 my-4 hover:brightness-90 text-base"
+                      ? "mx-6 brightness-125 my-4 hover:brightness-80 text-base"
+                      : "mx-6 my-4 hover:brightness-80 text-base"
                   }
                 >
                   home
@@ -88,8 +90,8 @@ const Header = () => {
                 <a
                   className={
                     router.asPath.includes("/about")
-                      ? "font-bold mx-6 my-4 hover:brightness-90 text-base"
-                      : "mx-6 my-4 hover:brightness-90 text-base"
+                      ? "mx-6 my-4 hover:brightness-80 text-base"
+                      : "mx-6 my-4 hover:brightness-80 text-base"
                   }
                 >
                   about
@@ -99,8 +101,8 @@ const Header = () => {
                 <a
                   className={
                     router.asPath.includes("/projects")
-                      ? "font-bold mx-6 my-4 hover:brightness-90 text-base"
-                      : "mx-6 my-4 hover:brightness-90 text-base"
+                      ? "mx-6 my-4 hover:brightness-80 text-base"
+                      : "mx-6 my-4 hover:brightness-80 text-base"
                   }
                 >
                   projects
@@ -110,8 +112,8 @@ const Header = () => {
                 <a
                   className={
                     router.asPath.includes("/services")
-                      ? "font-bold mx-6 py-4 hover:brightness-90 text-base"
-                      : "mx-6 my-4 hover:brightness-90 text-base"
+                      ? "mx-6 py-4 hover:brightness-80 text-base"
+                      : "mx-6 my-4 hover:brightness-80 text-base"
                   }
                 >
                   services

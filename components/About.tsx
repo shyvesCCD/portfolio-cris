@@ -1,3 +1,4 @@
+import { useTheme } from "next-themes";
 import Image from "next/image";
 
 type AboutProps = {
@@ -13,16 +14,27 @@ const AboutPageComponent = ({
   description2,
   image2,
 }: AboutProps) => {
+  const { theme } = useTheme();
+
   return (
     <>
       <div className="flex flex-col items-center justify-center gap-5">
-        <Image
-          className="invert"
-          src={`https://cris-backend-production.up.railway.app${image}`}
-          alt=""
-          width={400}
-          height={300}
-        />
+        {theme == "light" ? (
+          <Image
+            src={`https://cris-backend-production.up.railway.app${image}`}
+            alt=""
+            width={400}
+            height={300}
+          />
+        ) : (
+          <Image
+            className="invert"
+            src={`https://cris-backend-production.up.railway.app${image}`}
+            alt=""
+            width={400}
+            height={300}
+          />
+        )}
         <p
           className="flex flex-col text-2xl text-center"
           dangerouslySetInnerHTML={{ __html: description }}
@@ -38,14 +50,24 @@ const AboutPageComponent = ({
           ) : (
             image2.data.map((element: any, index: any) => (
               <div key={index} className="mx-10">
-                <Image
-                  className="invert"
-                  key={index}
-                  alt=""
-                  src={`https://cris-backend-production.up.railway.app${element.attributes.url}`}
-                  width={200}
-                  height={120}
-                />
+                {theme == "light" ? (
+                  <Image
+                    key={index}
+                    alt=""
+                    src={`https://cris-backend-production.up.railway.app${element.attributes.url}`}
+                    width={200}
+                    height={120}
+                  />
+                ) : (
+                  <Image
+                    className="invert"
+                    key={index}
+                    alt=""
+                    src={`https://cris-backend-production.up.railway.app${element.attributes.url}`}
+                    width={200}
+                    height={120}
+                  />
+                )}
               </div>
             ))
           )}

@@ -40,6 +40,8 @@ export const getServerSideProps = async () => {
 
   const data1 = response.data.data;
 
+  console.log(data1);
+
   if (!data1) return { notFound: true };
 
   return {
