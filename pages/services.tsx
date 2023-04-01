@@ -1,156 +1,202 @@
+import type { NextPage } from "next";
+import { SubmitHandler, useForm } from "react-hook-form";
+import { useTheme } from "next-themes";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import Header from "../components/Header";
 import BOTTLE from "../public/BOTTLE.svg";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
 
-const ServicePage: React.FC = () => {
+const ServicePage: NextPage = () => {
+  const { theme } = useTheme();
+
+  const schema = z.object({
+    name: z.string().min(1, { message: "Please enter your name" }),
+    lastName: z.string().min(1, { message: "Please enter your last name" }),
+    email: z
+      .string()
+      .min(1, { message: "Please enter your email" })
+      .email({ message: "Please enter a valid email address" }),
+    phone: z.string(),
+    category: z.enum([
+      "fiction",
+      "documentary",
+      "advertising",
+      "learning",
+      "social-media",
+    ]),
+    message: z.string().min(10, { message: "Please enter a message" }),
+  });
+
+  type ValidationSchema = z.infer<typeof schema>;
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<ValidationSchema>({
+    resolver: zodResolver(schema),
+  });
+
+  const onSubmit: SubmitHandler<ValidationSchema> = (data) => console.log(data);
+
   return (
     <div className="h-screen w-full flex flex-col">
       <Header />
-      <div className="h-[85vh] mt-[15vh] grid grid-cols-1 lg:grid-cols-3 gap-8">
-        {/* First column */}
-        <div className="lg:col-span-1 flex flex-col items-center justify-center">
-          <div className="overflow-hidden">
+      <div className="h-[85vh] mt-[15vh] grid grid-cols-1 lg:grid-cols-3 ">
+        <div className="flex flex-col items-center justify-center mx-10">
+          <div className="">
             <div className="p-6">
-              <h2 className="text-3xl font-medium text-gray-900 text-center mb-10">
+              <h2 className="text-3xl font-medium text-center mb-8">
                 Book a chat!
               </h2>
-              <p className="text-gray-600 mb-4 text-center text-2xl">
+              <p className="text-center text-2xl mb-10">
                 Tell me about your project and receive a{" "}
                 <Link href="/services" passHref>
                   <a className="font-bold">link to my calendar.</a>
                 </Link>
               </p>
-              <Image
-                className="lg:visible invisible"
-                src={BOTTLE}
-                alt="Profile picture"
-                objectFit="contain"
-                height={600}
-              />
+              {theme == "light" ? (
+                <Image
+                  src={BOTTLE}
+                  alt="Profile picture"
+                  objectFit="contain"
+                  height={400}
+                />
+              ) : (
+                <Image
+                  className="invert"
+                  src={BOTTLE}
+                  alt="Profile picture"
+                  objectFit="contain"
+                  height={400}
+                />
+              )}
             </div>
           </div>
         </div>
 
         {/* Second column */}
-        <div className="lg:col-span-1">
-          <div className="overflow-hidden">
-            <div className="p-6">
-              <h2 className="text-3xl font-medium text-gray-900 mb-8 text-center">
+        <div className="">
+          <div className="">
+            <div className="p-6 overflow-auto">
+              <h2 className="text-3xl font-medium mb-8 text-center">
                 Contact Us
               </h2>
-              <form className="space-y-6">
+              <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                 <div>
-                  <label
-                    htmlFor="first-name"
-                    className="block text-xl font-medium text-gray-700"
-                  >
-                    First Name
+                  <label htmlFor="name" className="block text-sm font-medium ">
+                    Name
                   </label>
-                  <div className="mt-3">
-                    <input
-                      type="text"
-                      name="first-name"
-                      id="first-name"
-                      autoComplete="given-name"
-                      className="py-2 px-3 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-xl border-gray-300 rounded-md"
-                    />
-                  </div>
+                  <input
+                    className="w-full px-3 py-2 text-sm leading-tight border rounded appearance-none"
+                    id="firstName"
+                    type="text"
+                    placeholder="First Name"
+                    {...register("name")}
+                  />
+                  {errors.name && (
+                    <p className="text-red-500">{errors.name.message}</p>
+                  )}
                 </div>
                 <div>
-                  <label
-                    htmlFor="last-name"
-                    className="block text-xl font-medium text-gray-700"
-                  >
+                  <label htmlFor="name" className="block text-sm font-medium ">
                     Last Name
                   </label>
-                  <div className="mt-3">
-                    <input
-                      type="text"
-                      name="last-name"
-                      id="last-name"
-                      autoComplete="family-name"
-                      className="py-2 px-3 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-xl border-gray-300 rounded-md"
-                    />
-                  </div>
+                  <input
+                    className="w-full px-3 py-2 text-sm leading-tight border rounded appearance-none"
+                    id="firstName"
+                    type="text"
+                    placeholder="Last Name"
+                    {...register("lastName")}
+                  />
+                  {errors.name && (
+                    <p className="text-red-500">{errors.name.message}</p>
+                  )}
                 </div>
                 <div>
-                  <label
-                    htmlFor="email"
-                    className="block text-xl font-medium text-gray-700"
-                  >
+                  <label htmlFor="email" className="block text-sm font-medium ">
                     Email
                   </label>
-                  <div className="mt-3">
-                    <input
-                      id="email"
-                      name="email"
-                      type="email"
-                      autoComplete="email"
-                      className="py-2 px-3 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-xl border-gray-300 rounded-md"
-                    />
-                  </div>
+                  <input
+                    className="w-full px-3 py-2 text-sm leading-tight border rounded appearance-none"
+                    id="email"
+                    type="email"
+                    placeholder="Email"
+                    {...register("email")}
+                  />
+                  {errors.email && (
+                    <p className="text-red-500">{errors.email.message}</p>
+                  )}
                 </div>
                 <div>
-                  <label
-                    htmlFor="phone"
-                    className="block text-xl font-medium text-gray-700"
-                  >
+                  <label htmlFor="email" className="block text-sm font-medium ">
                     Phone
                   </label>
                   <input
+                    className="w-full px-3 py-2 text-sm leading-tight border rounded appearance-none"
                     id="phone"
-                    name="phone"
                     type="phone"
-                    autoComplete="phone"
-                    className="py-2 px-3 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-xl border-gray-300 rounded-md"
+                    placeholder="Phone"
+                    {...register("phone")}
                   />
-                  <label
-                    htmlFor="select"
-                    className="block text-xl font-medium text-gray-700"
-                  >
-                    Select an option
-                  </label>
-                  <div className="mt-2">
-                    <select
-                      id="select"
-                      name="select"
-                      className="py-2 px-3 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-xl border-gray-300 rounded-md"
-                    >
-                      <option value="option1">Fiction</option>
-                      <option value="option2">Documentary</option>
-                      <option value="option3">Advertising</option>
-                      <option value="option3">Learning</option>
-                      <option value="option3">Social Media</option>
-                    </select>
-                  </div>
+                  {errors.phone && (
+                    <p className="text-red-500">{errors.phone.message}</p>
+                  )}
                 </div>
                 <div>
                   <label
-                    htmlFor="message"
-                    className="block text-xl font-medium text-gray-700"
+                    htmlFor="category"
+                    className="block text-sm font-medium text-gray-700"
                   >
-                    Project Details
+                    Category
                   </label>
-                  <div className="mt-3">
-                    <textarea
-                      id="message"
-                      name="message"
-                      rows={3}
-                      className="py-2 px-3 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-xl border-gray-300 rounded-md"
-                      placeholder="Tell us more about your project..."
-                    ></textarea>
-                  </div>
+                  <select
+                    id="category"
+                    {...register("category")}
+                    className="px-3 py-2 w-full rounded"
+                  >
+                    <option value="fiction">Fiction</option>
+                    <option value="advertising">Advertising</option>
+                    <option value="social-media">Social Media</option>
+                    <option value="learning">Learning</option>
+                    <option value="documentary">Documentary</option>
+                  </select>
+                  {errors.category && (
+                    <p className="text-red-500">{errors.category.message}</p>
+                  )}
                 </div>
                 <div>
+                  <label htmlFor="message" className="text-sm font-medium ">
+                    Message
+                  </label>
+                  <textarea
+                    className="w-full px-3 py-2 h-28 text-sm leading-tight border rounded appearance-none"
+                    id="message"
+                    placeholder="Tell me about your project."
+                    {...register("message")}
+                  />
+                  {errors.message && (
+                    <p className="text-red-500">{errors.message.message}</p>
+                  )}
+                </div>
+                {theme == "light" ? (
                   <button
                     type="submit"
-                    className="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
+                    className="px-4 py-2 bg-zinc-500 text-white rounded-md hover:bg-zinc-700"
                   >
                     Submit
                   </button>
-                </div>
+                ) : (
+                  <button
+                    type="submit"
+                    className="px-4 py-2 bg-white text-black rounded-md border-white hover:bg-zinc-200"
+                  >
+                    Submit
+                  </button>
+                )}
               </form>
             </div>
           </div>
@@ -158,10 +204,10 @@ const ServicePage: React.FC = () => {
 
         {/* Third column */}
         <div className="flex flex-col">
-          <div className="overflow-hidden">
+          <div className="">
             <div className="p-6">
               <div className="flex justify-center items-center mb-14">
-                <div className="relative lg:h-0 mt-[8vh] overflow-hidden max-w-full w-full pb-aspect mx-10">
+                <div className="relative lg:h-0 mt-[8vh] max-w-full w-full pb-aspect mx-10">
                   <iframe
                     src="https://www.youtube.com/embed/jfKfPfyJRdk"
                     className="absolute top-0 left-0 w-full h-full mx-auto "
@@ -169,7 +215,7 @@ const ServicePage: React.FC = () => {
                   ></iframe>
                 </div>
               </div>
-              <p className="text-gray-600 mt-4 text-center text-3xl">
+              <p className="mt-4 text-center text-3xl">
                 Meanwhile, peek into my <strong>editing room.</strong>
               </p>
             </div>
