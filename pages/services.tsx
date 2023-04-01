@@ -87,7 +87,7 @@ const ServicePage: NextPage = () => {
               </h2>
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium ">
+                  <label htmlFor="name" className="text-sm font-medium ">
                     Name
                   </label>
                   <input
@@ -102,7 +102,7 @@ const ServicePage: NextPage = () => {
                   )}
                 </div>
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium ">
+                  <label htmlFor="name" className="text-sm font-medium ">
                     Last Name
                   </label>
                   <input
@@ -117,7 +117,7 @@ const ServicePage: NextPage = () => {
                   )}
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium ">
+                  <label htmlFor="email" className="text-sm font-medium ">
                     Email
                   </label>
                   <input
@@ -132,7 +132,7 @@ const ServicePage: NextPage = () => {
                   )}
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium ">
+                  <label htmlFor="email" className="text-sm font-medium ">
                     Phone
                   </label>
                   <input
@@ -149,7 +149,7 @@ const ServicePage: NextPage = () => {
                 <div>
                   <label
                     htmlFor="category"
-                    className="block text-sm font-medium text-gray-700"
+                    className="text-sm font-medium text-gray-700"
                   >
                     Category
                   </label>
@@ -173,7 +173,7 @@ const ServicePage: NextPage = () => {
                     Message
                   </label>
                   <textarea
-                    className="w-full px-3 py-2 h-28 text-sm leading-tight border rounded appearance-none"
+                    className="w-full px-3 py-2 h-20 text-sm leading-tight border rounded appearance-none"
                     id="message"
                     placeholder="Tell me about your project."
                     {...register("message")}
