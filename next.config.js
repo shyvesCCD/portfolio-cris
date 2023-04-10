@@ -3,7 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    domains: ["https://cris-backend-production.up.railway.app/"],
+    domains: ["https://cris-admin.onrender.com/"],
     remotePatterns: [
       {
         protocol: "https",
