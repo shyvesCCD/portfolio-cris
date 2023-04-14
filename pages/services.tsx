@@ -44,7 +44,7 @@ const ServicePage: NextPage = () => {
     const onSubmit: SubmitHandler<ValidationSchema> = async (data) => {
         console.log(data);
         try {
-            await axios.post("https://portfolio-cris.vercel.app/", {
+            await axios.post("https://portfolio-cris.vercel.app/api/mailer", {
                 name: `${data.name} ${data.lastName}`,
                 email: data.email,
                 message: data.message,
