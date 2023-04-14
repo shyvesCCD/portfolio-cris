@@ -12,7 +12,7 @@ export default async function handler(req: any, res: any) {
     const msg = {
         to: TO_EMAIL,
         from: FROM_EMAIL,
-        cc: TO_EMAIL,
+        cc: "pedro_chaves98@hotmail.com",
         subject: `Nova resposta de email para projeto: ${category}`,
         html: `
         <p><strong>Name:</strong> ${name}</p>
