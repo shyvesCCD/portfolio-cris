@@ -8,6 +8,7 @@ import Header from "../components/Header";
 import BOTTLE from "../public/BOTTLE.svg";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import axios from "axios";
 
 const ServicePage: NextPage = () => {
     const { theme } = useTheme();
@@ -40,8 +41,19 @@ const ServicePage: NextPage = () => {
         resolver: zodResolver(schema),
     });
 
-    const onSubmit: SubmitHandler<ValidationSchema> = (data) =>
+    const onSubmit: SubmitHandler<ValidationSchema> = async (data) => {
         console.log(data);
+        try {
+            await axios.post("https://portfolio-cris.vercel.app/", {
+                name: `${data.name} ${data.lastName}`,
+                email: data.email,
+                message: data.message,
+                category: data.category,
+            });
+        } catch (e) {
+            console.error(e);
+        }
+    };
 
     return (
         <div className="h-screen w-full flex flex-col">
