@@ -7,12 +7,12 @@ const { SENDGRID_API_KEY, FROM_EMAIL, TO_EMAIL } = process.env;
 sgMail.setApiKey(SENDGRID_API_KEY);
 
 export default async function handler(req: any, res: any) {
-    console.log(req);
     const { name, email, message, category } = req.body;
 
     const msg = {
         to: TO_EMAIL,
         from: FROM_EMAIL,
+        cc: TO_EMAIL,
         subject: `Nova resposta de email para projeto: ${category}`,
         html: `
         <p><strong>Name:</strong> ${name}</p>
