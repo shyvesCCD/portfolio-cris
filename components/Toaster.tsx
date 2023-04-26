@@ -1,6 +1,6 @@
 import { Toaster, toast } from "sonner";
 
-const Toast = ({ name, theme }: any) => {
+const Toast = ({ theme }: any) => {
     const promise = () => new Promise((resolve) => setTimeout(resolve, 2000));
 
     return (

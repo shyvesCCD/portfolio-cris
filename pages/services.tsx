@@ -246,7 +246,7 @@ const ServicePage: NextPage = () => {
                                             </button>
                                         </>
                                     ) : (
-                                        <Toast theme name="Pedro" />
+                                        <Toast theme />
                                     )}
                                 </>
                             </form>
