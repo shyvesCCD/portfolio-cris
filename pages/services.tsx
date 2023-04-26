@@ -9,6 +9,7 @@ import BOTTLE from "../public/BOTTLE.svg";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import axios from "axios";
+import Toast from "../components/Toaster";
 
 const ServicePage: NextPage = () => {
     const { theme } = useTheme();
@@ -234,21 +235,20 @@ const ServicePage: NextPage = () => {
                                         </p>
                                     )}
                                 </div>
-                                {theme == "light" ? (
-                                    <button
-                                        type="submit"
-                                        className="px-4 py-2 bg-zinc-500 text-white rounded-md hover:bg-zinc-700"
-                                    >
-                                        Submit
-                                    </button>
-                                ) : (
-                                    <button
-                                        type="submit"
-                                        className="px-4 py-2 bg-white text-black rounded-md border-white hover:bg-zinc-200"
-                                    >
-                                        Submit
-                                    </button>
-                                )}
+                                <>
+                                    {errors.message ? (
+                                        <>
+                                            <button
+                                                type="submit"
+                                                className="px-4 py-2 bg-white text-black rounded-md border-white hover:bg-zinc-200"
+                                            >
+                                                Submit
+                                            </button>
+                                        </>
+                                    ) : (
+                                        <Toast theme name="Pedro" />
+                                    )}
+                                </>
                             </form>
                         </div>
                     </div>
