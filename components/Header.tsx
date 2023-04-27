@@ -8,7 +8,6 @@ import { parseCookies } from "nookies";
 const Header = ({ locale }: any) => {
     const router = useRouter();
     const [opened, setOpened] = useState(false);
-    //console.log(locale);
     const cookies = parseCookies();
 
     const content = {

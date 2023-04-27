@@ -46,8 +46,6 @@ const InicialPage: NextPage = () => {
 
     const currentContent = content[cookies.locale as keyof typeof content];
 
-    console.log(currentContent);
-
     return (
         <>
             <div className="h-screen w-full flex flex-col">
