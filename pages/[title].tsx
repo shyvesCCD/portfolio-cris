@@ -5,7 +5,6 @@ import { api } from "../lib/axios";
 import { loadAbout } from "../lib/load-about";
 import { AboutProps } from "../models/Category";
 import { mdBoldToStrong } from "../lib/md-bold-strong";
-
 import WaterMark from "../components/Watermark";
 import AboutPageComponent from "../components/About";
 
@@ -67,7 +66,6 @@ const About: NextPage<AboutProps> = ({ data, textArray, textArray2 }) => {
 export const getStaticPaths: GetStaticPaths = async () => {
     const { data } = await api.get("/abouts?populate=*");
 
-    console.log(data);
     const response = data.data;
 
     const paths = response.map(({ attributes }: any) => ({

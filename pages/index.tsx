@@ -1,6 +1,7 @@
 import type { NextPage } from "next";
 import { useRouter } from "next/router";
 import HeadComponent from "../components/HeadComponent";
+import { setCookie } from "nookies";
 
 const Home: NextPage = () => {
     const languages = [
@@ -18,7 +19,7 @@ const Home: NextPage = () => {
         },
         {
             name: "한국어",
-            code: "ko-KR",
+            code: "koKR",
         },
     ];
 
@@ -34,6 +35,10 @@ const Home: NextPage = () => {
             {languages.map((language) => (
                 <button
                     onClick={() => {
+                        setCookie(null, "locale", language.code, {
+                            maxAge: 86400 * 7,
+                            path: "/",
+                        });
                         router.push("/home");
                     }}
                     key={language.code}

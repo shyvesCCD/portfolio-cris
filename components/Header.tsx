@@ -3,10 +3,46 @@ import classNames from "classnames";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import ThemeChanger from "./ThemeChanger";
+import { parseCookies } from "nookies";
 
-const Header = () => {
+const Header = ({ locale }: any) => {
     const router = useRouter();
     const [opened, setOpened] = useState(false);
+    //console.log(locale);
+    const cookies = parseCookies();
+
+    const content = {
+        es: {
+            logo: "Cris Aldreyn | editor de video",
+            home: "hogar",
+            about: "sobre",
+            projects: "proyectos",
+            services: "servicios",
+        },
+        en: {
+            logo: "Cris Aldreyn | video editor",
+            home: "home",
+            about: "about",
+            projects: "projects",
+            services: "services",
+        },
+        pt: {
+            logo: "Cris Aldreyn | editora de vídeo",
+            home: "página inicial",
+            about: "sobre",
+            projects: "projetos",
+            services: "serviços",
+        },
+        koKR: {
+            logo: "Cris Aldreyn | 동영상 편집기",
+            home: "남성",
+            about: "~에 대한",
+            projects: "프로젝트",
+            services: "서비스",
+        },
+    };
+
+    const currentContent = content[cookies.locale as keyof typeof content];
 
     const handleOpenMenu = () => {
         setOpened(!opened);
@@ -16,7 +52,7 @@ const Header = () => {
         <nav className="absolute w-full h-[15vh] flex justify-between items-center z-10">
             <Link href="/home" passHref>
                 <a className="lg:text-2xl text-xl mx-8 font-medium">
-                    Cris Aldreyn | video editor
+                    {currentContent?.logo}
                 </a>
             </Link>
             <ul className="hidden md:flex items-center text-base cursor-pointer mx-8">
@@ -28,7 +64,7 @@ const Header = () => {
                                 : "px-6 py-4 hover:brightness-80 text-xl"
                         }
                     >
-                        home
+                        {currentContent?.home}
                     </a>
                 </Link>
                 <Link href="/about" passHref>
@@ -39,7 +75,7 @@ const Header = () => {
                                 : "px-6 py-4 hover:brightness-80 text-xl"
                         }
                     >
-                        about
+                        {currentContent?.about}
                     </a>
                 </Link>
                 <Link href="/projects" passHref>
@@ -50,7 +86,7 @@ const Header = () => {
                                 : "px-6 py-4 hover:brightness-80 text-xl"
                         }
                     >
-                        projects
+                        {currentContent?.projects}
                     </a>
                 </Link>
                 <Link href="/services" passHref>
@@ -61,7 +97,7 @@ const Header = () => {
                                 : "px-6 py-4 hover:brightness-80 text-xl"
                         }
                     >
-                        services
+                        {currentContent?.services}
                     </a>
                 </Link>
                 <ThemeChanger />
@@ -86,7 +122,7 @@ const Header = () => {
                                             : "mx-6 my-4 hover:brightness-80 text-base"
                                     }
                                 >
-                                    home
+                                    {currentContent?.home}
                                 </a>
                             </Link>
                             <Link href="/about" passHref>
@@ -97,7 +133,7 @@ const Header = () => {
                                             : "mx-6 my-4 hover:brightness-80 text-base"
                                     }
                                 >
-                                    about
+                                    {currentContent?.about}
                                 </a>
                             </Link>
                             <Link href="/projects" passHref>
@@ -108,7 +144,7 @@ const Header = () => {
                                             : "mx-6 my-4 hover:brightness-80 text-base"
                                     }
                                 >
-                                    projects
+                                    {currentContent?.projects}
                                 </a>
                             </Link>
                             <Link href="/services" passHref>
@@ -119,7 +155,7 @@ const Header = () => {
                                             : "mx-6 my-4 hover:brightness-80 text-base"
                                     }
                                 >
-                                    services
+                                    {currentContent?.services}
                                 </a>
                             </Link>
                         </div>
@@ -132,5 +168,14 @@ const Header = () => {
         </nav>
     );
 };
+
+export async function getServerSideProps() {
+    const cookies = parseCookies();
+    return {
+        props: {
+            locale: cookies.locale,
+        },
+    };
+}
 
 export default Header;
