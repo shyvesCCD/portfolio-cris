@@ -226,7 +226,7 @@ const ServicePage: NextPage = () => {
                                         htmlFor="name"
                                         className="text-sm font-medium "
                                     >
-                                        {currentContent.eleventh}
+                                        {currentContent?.eleventh}
                                     </label>
                                     <input
                                         className="w-full px-3 py-2 text-sm leading-tight border rounded appearance-none"
