@@ -284,7 +284,7 @@ const ServicePage: NextPage = () => {
                                 <div>
                                     <label
                                         htmlFor="category"
-                                        className="text-sm font-medium text-gray-700"
+                                        className="text-sm font-medium"
                                     >
                                         {currentContent?.category}
                                     </label>
