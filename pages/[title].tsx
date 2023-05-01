@@ -49,7 +49,7 @@ const About: NextPage<AboutProps> = ({ data, textArray, textArray2 }) => {
                         <AboutPageComponent
                             key={index}
                             image={
-                                element.attributes.foto.data[0].attributes.url
+                                element.attributes.foto.data[0]?.attributes.url
                             }
                             description={textArray[index]}
                             description2={textArray2[index]}
@@ -64,21 +64,19 @@ const About: NextPage<AboutProps> = ({ data, textArray, textArray2 }) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-    const { data } = await api.get("/abouts?populate=*");
-
+    const { data } = await api.get(`/abouts?locale=en&populate=*`);
     const response = data.data;
 
-    const paths = response.map(({ attributes }: any) => ({
-        params: { title: attributes.title.toLowerCase() },
+    const paths = response.map(() => ({
+        params: { title: "about" },
     }));
-
     return { paths, fallback: "blocking" };
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {
     const params = context.params!;
 
-    const data = await loadAbout(params);
+    const data = await loadAbout(params, context.locale);
 
     let textArray: any = [];
     let textArray2: any = [];
