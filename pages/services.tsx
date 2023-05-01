@@ -64,7 +64,7 @@ const ServicePage: NextPage = () => {
             learning: "Learning",
             documentary: "Documentary",
         },
-        pt: {
+        "pt-BR": {
             first: "Por favor, insira seu nome",
             second: "Por favor, insira seu email",
             third: "Por favor, insira um email válido",
@@ -88,7 +88,7 @@ const ServicePage: NextPage = () => {
             learning: "Aprendizado",
             documentary: "Documentário",
         },
-        koKR: {
+        "ko-KR": {
             first: "당신의 이름을 입력 해주세요",
             second: "이메일을 입력하세요",
             third: "유효한 이메일 주소를 입력하세요",
