@@ -8,15 +8,15 @@ const Toast = ({ theme, text }: any) => {
     const contentEmail = {
         es: "Tu mesaje ha sido enviada!",
         en: "Your email has been sent!",
-        pt: "Seu email foi enviado!",
-        koKR: "당신의 이메일이 전송되었습니다!",
+        "pt-BR": "Seu email foi enviado!",
+        "ko-KR": "당신의 이메일이 전송되었습니다!",
     };
 
     const contentLoading = {
         es: "Cargando...",
         en: "Loading...",
-        pt: "Carregando...",
-        koKR: "로드 중...",
+        "pt-BR": "Carregando...",
+        "ko-KR": "로드 중...",
     };
 
     return (

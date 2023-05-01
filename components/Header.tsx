@@ -25,14 +25,14 @@ const Header = ({ locale }: any) => {
             projects: "projects",
             services: "services",
         },
-        pt: {
+        "pt-BR": {
             logo: "Cris Aldreyn | editora de vídeo",
             home: "página inicial",
             about: "sobre",
             projects: "projetos",
             services: "serviços",
         },
-        koKR: {
+        "ko-KR": {
             logo: "Cris Aldreyn | 동영상 편집기",
             home: "남성",
             about: "~에 대한",
@@ -77,7 +77,7 @@ const Header = ({ locale }: any) => {
                         {currentContent?.about}
                     </a>
                 </Link>
-                <Link href="/projects" passHref>
+                <Link href={`/projects`} passHref>
                     <a
                         className={
                             router.asPath.includes("/projects")
@@ -88,7 +88,7 @@ const Header = ({ locale }: any) => {
                         {currentContent?.projects}
                     </a>
                 </Link>
-                <Link href="/services" passHref>
+                <Link href={`/services`} passHref>
                     <a
                         className={
                             router.asPath.includes("/services")
@@ -113,7 +113,7 @@ const Header = ({ locale }: any) => {
                 <div className="tham-box">
                     {opened ? (
                         <div className="flex flex-col rounded-lg z-50 bg-gray-600 w-fit h-fit top-10 float-right">
-                            <Link href="/home" passHref>
+                            <Link href={`/home`} passHref>
                                 <a
                                     className={
                                         router.asPath.includes("/home")
@@ -124,7 +124,7 @@ const Header = ({ locale }: any) => {
                                     {currentContent?.home}
                                 </a>
                             </Link>
-                            <Link href="/about" passHref>
+                            <Link href={`/about`} passHref>
                                 <a
                                     className={
                                         router.asPath.includes("/about")
@@ -135,7 +135,7 @@ const Header = ({ locale }: any) => {
                                     {currentContent?.about}
                                 </a>
                             </Link>
-                            <Link href="/projects" passHref>
+                            <Link href={`/projects`} passHref>
                                 <a
                                     className={
                                         router.asPath.includes("/projects")
@@ -146,7 +146,7 @@ const Header = ({ locale }: any) => {
                                     {currentContent?.projects}
                                 </a>
                             </Link>
-                            <Link href="/services" passHref>
+                            <Link href={`/services`} passHref>
                                 <a
                                     className={
                                         router.asPath.includes("/services")
