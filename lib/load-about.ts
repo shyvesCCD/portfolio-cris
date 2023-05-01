@@ -1,8 +1,8 @@
 import { ParamsPropsAbout } from "../models/Category";
 import { api } from "./axios";
 
-export async function loadAbout(params: ParamsPropsAbout) {
-    const { data } = await api.get("/abouts?populate=*");
+export async function loadAbout(params: ParamsPropsAbout, locale: any) {
+    const { data } = await api.get(`/abouts?locale=${locale}&populate=*`);
 
     const response = data.data;
 
