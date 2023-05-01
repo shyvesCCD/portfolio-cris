@@ -29,10 +29,10 @@ const ProjectsCategory: NextPage<CategoryWhenNotArray> = ({
                     <HeaderCategories categories={responseArray} />
                 </div>
                 <div className="flex lg:flex-row flex-col">
-                    <div className="lg:visible invisible flex items-center">
+                    <div className="visible flex items-center">
                         {theme == "light" ? (
                             <Image
-                                className="lg:visible invisible"
+                                className="lg:visible "
                                 src={`${retorno.attributes.fotoCategoria.data[0].attributes.url}`}
                                 alt=""
                                 objectFit="contain"
@@ -41,7 +41,7 @@ const ProjectsCategory: NextPage<CategoryWhenNotArray> = ({
                             />
                         ) : (
                             <Image
-                                className="lg:visible invisible invert"
+                                className="lg:visible invert"
                                 src={`${retorno.attributes.fotoCategoria.data[0].attributes.url}`}
                                 alt=""
                                 objectFit="contain"
@@ -100,7 +100,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async (context) => {
     const params = context.params!;
 
-    const { value, response } = await loadCategory(params);
+    const { value, response } = await loadCategory(params, context.locale);
 
     const textArray = value[0].attributes.description.split("\n");
 

@@ -4,6 +4,7 @@ import { api } from "../../lib/axios";
 import Card from "../../components/Cards";
 import { Category, ElementProps } from "../../models/Category";
 import WaterMark from "../../components/Watermark";
+import nookies from "nookies";
 
 const Projects: NextPage<Category> = ({ category }) => {
     return (
@@ -34,10 +35,15 @@ const Projects: NextPage<Category> = ({ category }) => {
 
 export default Projects;
 
-export const getServerSideProps = async () => {
-    const response = await api.get("/categories?populate=*");
+export const getServerSideProps = async (ctx: any) => {
+    const cookies = nookies.get(ctx);
+    const response = await api.get(
+        `/categories?locale=${cookies.locale}&populate=*`
+    );
 
     const data1 = response.data.data;
+
+    console.log(data1);
 
     if (!data1) return { notFound: true };
 
