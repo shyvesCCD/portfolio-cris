@@ -7,7 +7,7 @@ const Home: NextPage = () => {
     const languages = [
         {
             name: "PORTUGUÊS",
-            code: "pt",
+            code: "pt-BR",
         },
         {
             name: "ESPAÑOL",
@@ -19,7 +19,7 @@ const Home: NextPage = () => {
         },
         {
             name: "한국어",
-            code: "koKR",
+            code: "ko-KR",
         },
     ];
 
@@ -39,7 +39,7 @@ const Home: NextPage = () => {
                             maxAge: 86400 * 7,
                             path: "/",
                         });
-                        router.push("/home");
+                        router.push(language.code + "/home");
                     }}
                     key={language.code}
                     className="hover:underline text-4xl mt-4"

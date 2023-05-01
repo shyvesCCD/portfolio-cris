@@ -26,14 +26,14 @@ const InicialPage: NextPage = () => {
             fourth: "Wherever you are.",
             fifth: "Book a chat",
         },
-        pt: {
+        "pt-BR": {
             first: "Olá, me chamo Cris",
             second: "Sou uma editora de vídeo que mora em Porto, Portugal",
             third: "Vou dar vida à sua história.",
             fourth: "Independente onde você esteja.",
             fifth: "Reserve um chat",
         },
-        koKR: {
+        "ko-KR": {
             first: "안녕하세요, 크리스입니다.",
             second: "저는 포르투갈 포르투에 거주하는 비디오 편집자입니다.",
             third: "당신의 이야기에 생명을 불어넣자.",

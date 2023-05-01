@@ -4,12 +4,12 @@ import { ThemeProvider } from "next-themes";
 import HeadComponent from "../components/HeadComponent";
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return (
-    <ThemeProvider>
-      <HeadComponent text="Cris Aldreyn" />
-      <Component {...pageProps} />
-    </ThemeProvider>
-  );
+    return (
+        <ThemeProvider>
+            <HeadComponent text="Cris Aldreyn" />
+            <Component {...pageProps} />
+        </ThemeProvider>
+    );
 }
 
 export default MyApp;
