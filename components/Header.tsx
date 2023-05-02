@@ -5,7 +5,7 @@ import { useState } from "react";
 import ThemeChanger from "./ThemeChanger";
 import { parseCookies } from "nookies";
 
-const Header = ({ locale }: any) => {
+const Header = () => {
     const router = useRouter();
     const [opened, setOpened] = useState(false);
     const cookies = parseCookies();
