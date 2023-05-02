@@ -39,7 +39,11 @@ const Home: NextPage = () => {
                             maxAge: 86400 * 7,
                             path: "/",
                         });
-                        router.push(language.code + "/home");
+                        {
+                            language.code == "en"
+                                ? router.push("/home")
+                                : router.push(language.code + "/home");
+                        }
                     }}
                     key={language.code}
                     className="hover:underline text-4xl mt-4"
