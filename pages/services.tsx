@@ -295,19 +295,27 @@ const ServicePage: NextPage = () => {
                                         {...register("category")}
                                         className="px-3 py-2 w-full rounded"
                                     >
-                                        <option value="fiction">
+                                        <option value={currentContent?.fiction}>
                                             {currentContent?.fiction}
                                         </option>
-                                        <option value="advertising">
+                                        <option
+                                            value={currentContent?.advertising}
+                                        >
                                             {currentContent?.advertising}
                                         </option>
-                                        <option value="social-media">
+                                        <option
+                                            value={currentContent?.socialmedia}
+                                        >
                                             {currentContent?.socialmedia}
                                         </option>
-                                        <option value="learning">
+                                        <option
+                                            value={currentContent?.learning}
+                                        >
                                             {currentContent?.learning}
                                         </option>
-                                        <option value="documentary">
+                                        <option
+                                            value={currentContent?.documentary}
+                                        >
                                             {currentContent?.documentary}
                                         </option>
                                     </select>
