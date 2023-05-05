@@ -11,9 +11,8 @@ export default async function handler(req: any, res: any) {
 
     if (language == "en") {
         const msgEN = {
-            to: TO_EMAIL,
+            to: email,
             from: FROM_EMAIL,
-            cc: "pedro_chaves98@hotmail.com",
             subject: `Cris Aldreyn | Video Editing | ${category} Project`,
             html: `
             <p>Hi ${name},</p>
@@ -36,9 +35,8 @@ export default async function handler(req: any, res: any) {
         await sgMail.send(msgEN);
     } else if (language == "pt-BR") {
         const msgPT = {
-            to: TO_EMAIL,
+            to: email,
             from: FROM_EMAIL,
-            cc: "pedro_chaves98@hotmail.com",
             subject: `Cris Aldreyn | Edição de Vídeo | Projeto de ${category}`,
             html: `
             <p>Olá ${name},</p>
@@ -61,9 +59,8 @@ export default async function handler(req: any, res: any) {
         await sgMail.send(msgPT);
     } else if (language == "ko-KR") {
         const msgKR = {
-            to: TO_EMAIL,
+            to: email,
             from: FROM_EMAIL,
-            cc: "pedro_chaves98@hotmail.com",
             subject: `Cris Aldreyn | 영상 편집 | 프로젝트 ${category}`,
             html: `
             <p>안녕하세요 ${lastName} ${name},</p>
@@ -87,7 +84,7 @@ export default async function handler(req: any, res: any) {
         await sgMail.send(msgKR);
     } else {
         const msgES = {
-            to: TO_EMAIL,
+            to: email,
             from: FROM_EMAIL,
             cc: "pedro_chaves98@hotmail.com",
             subject: `Cris Aldreyn | Edición de video | Proyecto ${category}`,
