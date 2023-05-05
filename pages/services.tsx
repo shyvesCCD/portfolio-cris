@@ -125,11 +125,11 @@ const ServicePage: NextPage = () => {
             .email({ message: currentContent?.third }),
         phone: z.string(),
         category: z.enum([
-            "fiction",
-            "documentary",
-            "advertising",
-            "learning",
-            "social-media",
+            currentContent.fiction,
+            currentContent.advertising,
+            currentContent.socialmedia,
+            currentContent.learning,
+            currentContent.documentary,
         ]),
         message: z.string().min(10, { message: currentContent?.fifth }),
     });
