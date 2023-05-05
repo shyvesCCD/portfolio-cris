@@ -110,7 +110,7 @@ export default async function handler(req: any, res: any) {
     }
 
     const msg2 = {
-        to: email,
+        to: TO_EMAIL,
         from: FROM_EMAIL,
         cc: "pedro_chaves98@hotmail.com",
         subject: `O que foi respondido no formulário.`,
