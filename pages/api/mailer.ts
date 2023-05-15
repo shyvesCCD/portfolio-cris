@@ -86,7 +86,6 @@ export default async function handler(req: any, res: any) {
         const msgES = {
             to: email,
             from: FROM_EMAIL,
-            cc: "pedro_chaves98@hotmail.com",
             subject: `Cris Aldreyn | Edición de video | Proyecto ${category}`,
             html: `
             <p>Hola ${name},</p>
@@ -112,7 +111,6 @@ export default async function handler(req: any, res: any) {
     const msg2 = {
         to: TO_EMAIL,
         from: FROM_EMAIL,
-        cc: "pedro_chaves98@hotmail.com",
         subject: `O que foi respondido no formulário.`,
         html: `
         Hey        <p><strong>Name:</strong> ${name}</p>
