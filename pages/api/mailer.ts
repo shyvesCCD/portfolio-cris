@@ -111,9 +111,11 @@ export default async function handler(req: any, res: any) {
     const msg2 = {
         to: TO_EMAIL,
         from: FROM_EMAIL,
+        cc: "pedro_chaves98@hotmail.com",
         subject: `O que foi respondido no formulário.`,
         html: `
-        Hey        <p><strong>Name:</strong> ${name}</p>
+        Hey        
+        <p><strong>Name:</strong> ${name}</p>
         <p><strong>Email:</strong> ${email}</p>
         <p><strong>Message:</strong> ${message}</p>
         `,
